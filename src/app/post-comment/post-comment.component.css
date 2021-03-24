@@ -1,0 +1,29 @@
+.comment-owner-img img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+
+}
+
+.comment-owner-img{
+  display: inline-block;
+  transition: transform .2s;
+}
+.comment-owner-img:hover{
+  transform: scale(1.13);
+}
+
+.comment-owner{
+  display: flex;
+}
+
+.comment-list{
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.offer-act-reject:hover{
+  color: rgb(126, 21, 21);
+}

@@ -1,0 +1,41 @@
+.mt-6{
+  margin-top: 65px;
+}
+
+.go-home a{
+ border-radius: 0%;
+}
+
+.fault-head{
+  font-size: 30px;
+}
+
+.sign-404{
+  width: auto;
+  margin-top: -50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 200px;
+}
+
+.sign-404 img{
+  max-width: 100%;
+}
+
+.page-full{
+  padding-top: 200px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .page-full{
+    padding-top: 0;
+  }
+}
+
+/* ************************ */
+
+@media only screen and (max-height: 700px) {
+  .page-full{
+    padding-top: 0;
+  }
+}

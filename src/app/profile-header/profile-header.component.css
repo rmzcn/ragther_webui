@@ -1,0 +1,119 @@
+.profile-container{
+  -webkit-box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
+  box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
+}
+
+.profile-image img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto!important;
+  display: block;
+}
+.profile-name{
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.info-element-value{
+  font-weight: 600;
+  font-size: 25px;
+}
+.info-element-text{
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.action-element a{
+  width: 130px;
+}
+
+.profile-desc-head{
+  font-size: 20px;
+  font-weight: 400px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.profile-desc-body{
+  /* text-align: ; */
+  /* font-size: medium; */
+}
+
+.mt-6{
+  margin-top: 65px;
+}
+
+.profile-param{
+  justify-content: flex-end;
+}
+
+.bg-random{
+  background: rgb(255,0,82);
+  background: linear-gradient(135deg, rgba(255,0,82,1) 0%, rgba(8,0,128,1) 100%);
+}
+
+.font-person-name{
+  font-size: 40px!important;
+}
+.splitter{
+  width: 20px;
+}
+.font-user-name{
+  padding-top: 12px;
+  font-size: 23px;
+  font-weight: 500;
+  color: rgb(118, 118, 118);
+}
+
+.user-actions{
+  justify-content: flex-end;
+}
+.profile-stat{
+  border-top-style: solid;
+  border-bottom-style: solid;
+  padding-bottom: 5px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.323);
+}
+
+@media only screen and (max-width: 768px) {
+  .hidden-hr{
+    padding: 4px;
+    width: 60%;
+    margin: 0 auto;
+    border-style: solid;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    border-width: thin;
+    border-color: rgba(0, 0, 0, 0.296);
+  }
+
+  .profile-param{
+    justify-content: center;
+  }
+
+  .full-hr{
+    width: 100%!important;
+  }
+  #profileValues{
+    margin: 6px 0;
+  }
+
+  .person-head{
+    justify-content: center;
+  }
+  .font-person-name{
+    text-align: center;
+  }
+  .profile-desc-body{
+    text-align: center;
+  }
+  .profile-desc-head{
+    text-align: center;
+  }
+  .user-actions{
+    justify-content: center;
+  }
+}

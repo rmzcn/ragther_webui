@@ -1,0 +1,11 @@
+.bg-navbar{
+  background-color: rgba(206, 206, 206, 0.597);
+}
+
+.icon-color{
+  padding: 5px;
+  background: -webkit-linear-gradient(135deg, rgba(0,255,243,1) 0%, rgba(255,0,85,1) 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  font-size: 32px;
+}

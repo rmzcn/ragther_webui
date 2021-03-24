@@ -1,0 +1,121 @@
+<div class="container mt-6 bg-white profile-container">
+  <div class="row justify-content-end">
+    <i class="fas fa-check-circle fa-2x pt-2 pr-2 text-success"></i>
+  </div>
+  <div class="row p-3">
+    <div class="col-md-3">
+      <div class="profile-image">
+        <img src="../assets/img/profile_img.jpg" alt="">
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row person-head">
+        <h3 class="display-4 font-person-name">{{personName}} {{personSurname}}</h3>
+        <div class="d-flex">
+          <p class="font-user-name">@{{userName}}</p>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="profile-desc">
+          <div class="profile-desc-head">
+            - Açıklama -
+          </div>
+          <div class="profile-desc-body lead">
+            {{profileDescription}}
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="row justify-content-center profile-stat">
+            <div class="col-4">
+              <div class="info-element">
+                <div class="info-element-value text-center">
+                  {{profileScore}}
+                </div>
+                <div class="info-element-text text-center text-muted">
+                  Puan
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="info-element">
+                <div class="info-element-value text-center">
+                  {{helpNumber}}
+                </div>
+                <div class="info-element-text text-center text-muted">
+                  Yardım
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="info-element">
+                <div class="info-element-value text-center">
+                  {{friendsNumber}}
+                </div>
+                <div class="info-element-text text-center text-muted">
+                  Arkadaş
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row pt-3 user-actions">
+            <div *ngIf="isSelf; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+              <div class="action-element mx-3">
+                <a href="" class="d-block text-decoration-none btn btn-outline-dark">
+                  <i class="fas fa-user-cog fa-lg d-flex justify-content-center text-center"></i>
+                  <p class="text-center m-0">Profili Düzenle</p>
+                </a>
+              </div>
+            </ng-template>
+            <ng-template #elseBlock>
+              <div *ngIf="isFriend; then isFriendBlock else isNotFriend"></div>
+
+              <ng-template #isFriendBlock>
+                <div class="action-element mx-3">
+                  <a href="" class="d-block text-decoration-none btn btn-outline-danger">
+                    <i class="fas fa-user-slash fa-lg d-flex justify-content-center text-center"></i>
+                    <p class="text-center m-0">Kişiyi Çıkart</p>
+                  </a>
+                </div>
+              </ng-template>
+
+              <ng-template #isNotFriend>
+                <div *ngIf="isSendFriendship; then friendshipSended else friendshipNotSended"></div>
+
+                <ng-template #friendshipNotSended>
+                  <div class="action-element mx-3">
+                    <a href="" class="d-block text-decoration-none btn btn-outline-info">
+                      <i class="fas fa-user-plus fa-lg d-flex justify-content-center text-center"></i>
+                      <p class="text-center m-0">Arkadaş Ekle</p>
+                    </a>
+                  </div>
+                </ng-template>
+
+                <ng-template #friendshipSended>
+                  <div class="action-element mx-3">
+                    <a href="" class="d-block text-decoration-none btn btn-outline-info">
+                      <i class="fas fa-user-clock fa-lg d-flex justify-content-center text-center"></i>
+                      <p class="text-center m-0">Bekleniyor</p>
+                    </a>
+                  </div>
+                </ng-template>
+              </ng-template>
+
+              <div class="action-element mx-3">
+                <a href="" class="d-block text-decoration-none btn btn-outline-success">
+                  <i class="fas fa-envelope fa-lg d-flex justify-content-center text-center"></i>
+                  <p class="text-center m-0">Mesaj Gönder</p>
+                </a>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

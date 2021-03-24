@@ -1,0 +1,73 @@
+<div class="row flex-column">
+
+  <div class="message-actions-area chat-top">
+    <div class="message-actions">
+      <div class="new-message">
+        <button class="btn" title="Yeni Mesaj" data-toggle="modal" data-target="#modalNewMessage"><i class="fas fa-feather-alt fa-2x"></i></button>
+      </div>
+      <div class="area-title pt-2 lead">
+        Mesajlaşma
+      </div>
+      <div class="log-out pr-4 pt-1">
+        <button class="btn" title="Çıkış"><i class="fas fa-sign-out-alt fa-2x"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overflow-y-scroll full-width pt-3">
+    <!-- users -->
+    <a href="" class="chat-link">
+      <div class="chat py-1 px-2">
+        <div class="chat-user">
+          <div class="chat-user-img">
+            <img src="../assets/img/profile_img.jpg" alt="">
+          </div>
+          <div class="chat-info pl-2 pt-1">
+            <div class="chat-info-user">
+              <span class="chat-info-username text-info">@rmzncn</span>
+            </div>
+            <div class="chat-info-message text-muted text-info">
+              Lorem ipsum dolor sit amet consect...
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalNewMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content radius-0">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Yeni Mesaj</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body overflow-y-scroll" style="max-height: 300px;">
+        <h5 class="lead">Arkadaşların</h5>
+        <div class="new-chat-users">
+          <div class="friend-for-chat p-2">
+            <a href="" class="new-chat-link">
+              <div class="chat-user">
+                <div class="chat-user-img">
+                  <img src="../assets/img/profile_img.jpg" alt="">
+                </div>
+                <div class="chat-info pl-2 pt-2">
+                  <div class="chat-info-user">
+                    <span class="new-chat-username text-info">@rmzncn</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary radius-0" data-dismiss="modal">İptal</button>
+      </div>
+    </div>
+  </div>
+</div>

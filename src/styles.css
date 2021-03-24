@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+.shaded-component{
+  -webkit-box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
+  box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
+
+}
+
+.mt-6{
+  margin-top: 65px;
+}
+
+.radius-0{
+  border-radius: 0%!important;
+}
+
+.btn-same-size{
+  width: 100px;
+}
+
+.btn-none{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px!important;
+}
+
+.badge-orange{
+  background-color: tomato;
+  color: white;
+}
+
+.text-orange{
+  color:tomato;
+
+}
+
+.text-working{
+  color: rgb(184, 120, 0);
+}
+
+.border-top-slim{
+  border-top-style: solid ;
+  border-width: 1px;
+  border-color: rgb(199, 199, 199);
+}
+
+
+/* SCROLL BAR START */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* SCROLLBAR END */
+
+.overflow-y-scroll{
+  overflow-y: scroll;
+}
