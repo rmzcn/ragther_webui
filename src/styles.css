@@ -1,7 +1,14 @@
+@import "checkbox.css";
+
+
 .shaded-component{
   -webkit-box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
   box-shadow: 7px 7px 11px -1px rgba(0,0,0,0.39);
 
+}
+.shaded-component2{
+  -webkit-box-shadow: 0px 10px 13px -12px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: 0px 10px 13px -12px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 .mt-6{
@@ -71,4 +78,54 @@
 
 .overflow-y-scroll{
   overflow-y: scroll;
+}
+
+
+.text-small{
+  font-size: 13px;
+}
+
+/* ANIMATIONS */
+
+.fade-in {
+  animation: fadeIn ease 0.7s;
+  -webkit-animation: fadeIn ease 0.7s;
+  -moz-animation: fadeIn ease 0.7s;
+  -o-animation: fadeIn ease 0.7s;
+  -ms-animation: fadeIn ease 0.7s;
+  }
+  @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+.slide-up{
+  transition: height 2s;
+}
+
+
+
+
+.border-radius-2{
+  border-radius: 5%;
 }

@@ -52,8 +52,10 @@
 }
 
 .profile-image img{
-  width: 80px;
-  height: 80px;
+  width: 80px!important;
+  height: 80px!important;
+  max-width: 80px;
+  max-height: 80px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
@@ -61,6 +63,7 @@
 }
 
 .profile-image{
+
   display: inline-block;
   transition: transform .2s;
 }
@@ -162,4 +165,8 @@
   color: white;
 }
 
+
+.font-size-md {
+  font-size: 27px;
+}
 

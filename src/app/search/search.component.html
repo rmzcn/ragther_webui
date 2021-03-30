@@ -1,0 +1,67 @@
+<div class="container mt-6 bg-white shaded-component2">
+  <div class="row p-2">
+    <div class="col-md-12">
+      <h5 class="display-4 font-size-md">Kişileri veya etiketleri ara</h5>
+      <div class="input-group mb-3 pt-2">
+        <input type="text" class="form-control" placeholder="Kişi adı yada etiket adı giriniz" aria-label="Arama Yap" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-info" type="button"><i class="far fa-search fa-lg"></i></button>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <!-- EĞER SONUÇ BULUNAMAZSA AŞAĞIDAKİ BÖLÜM ÇALIŞACAK -->
+
+  <!-- <div class="search-nothin py-5">
+    <i class="fal fa-minus-octagon fa-8x text-danger d-block text-center"></i>
+    <h2 class="display-4 text-center"><i class="fal fa-search"> </i> Hiçbir sonuç bulunamadı</h2>
+  </div> -->
+
+
+  <!-- eğer hiç sonuç yoksa gösterme -->
+  <div class="search-user">
+    <h5 class="display-4 pl-3 pr-2 font-size-sm d-inline-block"><i class="fal fa-users fa-lg"></i> Kişiler</h5>
+    <span class="search-info d-inline-block text-muted">4 sonuç bulundu.</span>
+    <!-- users : max 5 user -->
+    <div class="row border-top mt-2 p-3">
+      <div class="profile-results">
+        <div class="profile-card p-2 mx-1 my-1 border border-radius-2">
+          <a href="" class="text-decoration-none">
+            <div class="profile-image">
+              <img class=" mx-auto" src="../assets/img/profile_img.jpg" alt="">
+            </div>
+            <div class="profile-user-name text-center">
+              <h5>@rmzncn</h5>
+            </div>
+            <div class="profile-full-name text-center">
+              Ramazan Can Gölgen
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tags">
+    <h5 class="display-4 pl-3 pr-2 font-size-sm d-inline-block"><i class="fal fa-hashtag fa-lg"></i> Etiketler</h5>
+    <span class="search-info d-inline-block text-muted">4 sonuç bulundu.</span>
+    <!-- tags : max 15 tag -->
+    <div class="row border-top mt-2 p-3">
+      <div class="tag-results">
+        <div class="tags">
+          <a href="" class="text-decoration-none">
+            <div class="tag">
+              <div class="tag-name">Ödev</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

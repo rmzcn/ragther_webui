@@ -1,0 +1,37 @@
+.font-size-md{
+  font-size: 35px;
+}
+
+.notify{
+  display: flex;
+}
+
+.notify span{
+  margin-left: 5px;
+}
+
+.notify:hover{
+  background-color: rgb(240, 240, 240);
+}
+
+.bg-notify-content{
+  background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 61%, rgba(255,255,255,0) 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.text-md{
+  /* font-size: 15px; */
+}
+
+.fa-action{
+  font-size: 25px;
+  padding-top: 2px;
+}
+
+
+@media only screen and (max-width: 350px){
+  .font-size-md{
+    font-size: 30px;
+  }
+}

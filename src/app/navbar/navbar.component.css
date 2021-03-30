@@ -9,3 +9,54 @@
 	-webkit-text-fill-color: transparent;
   font-size: 32px;
 }
+
+.modal-content {
+  position:fixed;
+  top:auto;
+  right:0;
+  left:0;
+  bottom:0;
+}
+
+.notification-badge{
+  display: inline-block;
+  position: absolute;
+  margin-left: 80px;
+}
+
+
+/* RESPONSIVE NAVBAR */
+
+.links{
+  display: flex;
+}
+
+#responsiveMenuButton{
+  background: -webkit-linear-gradient(135deg, rgba(0,255,243,1) 0%, rgba(255,0,85,1) 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #responsiveMenuButton{
+    display: inline-block;
+  }
+  .links{
+    display: none;
+  }
+  #linksResponsive a{
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .notification-badge{
+    display: inline-block;
+    position: absolute;
+    margin-left: 195px;
+    margin-top: 5px;
+  }
+}
+
+
+

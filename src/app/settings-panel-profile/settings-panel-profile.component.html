@@ -1,0 +1,60 @@
+<div class="option-panel">
+  <div class="row justify-content-center py-2">
+    <h6 class="display-4">Porfilini Düzenle</h6>
+  </div>
+  <hr class="my-1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="set-profile p-3">
+        <form>
+          <div class="form-group">
+            <label for="updateEmail">E-mail adresin</label>
+            <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" placeholder="Mail adresinizi giriniz">
+            <small id="emailHelp" class="form-text text-muted">Değiştirmek istediğiniz mailinize bir onay linki gelecektir. Onaylamanız halinde mail adresiniz değiştirilecektir.</small>
+          </div>
+          <div class="form-group">
+            <label for="profileDescrption">Profil Açıklaman</label>
+            <textarea class="form-control" id="profileDescrption" rows="3"></textarea>
+          </div>
+          <div class="set-profile-img d-flex">
+            <div class="current-profile-photo">
+              <img src="../assets/img/profile_img.jpg" alt="">
+            </div>
+            <div class="form-group ml-4">
+              <label for="profileImageUpload">Yeni Profil Fotoğrafı Yükle</label>
+              <input type="file" class="form-control-file" id="profileImageUpload">
+              <small class="form-text text-muted">Sol taraftaki resim, geçerli olan profil resmidir. Yenisini yüklemeniz halinde orada ön izlemesini görebilirsiniz.</small>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-info radius-0 float-right mb-3" data-toggle="modal" data-target="#updateMailModal">Tamamla</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="updateMailModal" tabindex="-1" role="dialog" aria-labelledby="updateMailModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content fade-in radius-0 bg-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateMailTitle">Bilgi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mail-info-icon text-center">
+          <i class="far fa-check-circle fa-8x text-success"></i>
+        </div>
+        <div class="update-title text-center mt-2">
+          <span class="font-weight-bold">ramazancangolgen@gmail.com</span> mail adresinize, yeni mail adresinizin güncelleyebilmemiz için bir onay linki gönderilmiştir. Linke tıklayarak mevcut mail adresinizi <span class="font-weight-bold text-info">yenimail@gmail.com</span> ile güncelleyebilrsiniz.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary radius-0" data-dismiss="modal">Tamam</button>
+      </div>
+    </div>
+  </div>
+</div>

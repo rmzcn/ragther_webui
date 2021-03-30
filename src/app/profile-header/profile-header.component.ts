@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileHeaderComponent implements OnInit {
 
-  isSelf: boolean = false;
+  isSelf: boolean = true;
   isSendFriendship: boolean = false;
-  isFriend : boolean = true;
+  isFriend : boolean = false;
   userName: string = "rmzncn";
   personName: string = "Ramazan Can";
   personSurname: string = "Gölgen";

@@ -1,0 +1,102 @@
+<div class="container mt-6 bg-white shaded-component2">
+  <div class="row p-2">
+    <div class="col-md-12">
+      <div class="d-flex">
+        <h5 class="display-4 font-size-md"><i class="fal fa-hand-holding-heart text-danger"></i> Bildirimleriniz</h5>
+        <button title="Bildirim Kutusunu Boşalt" class="btn text-danger ml-auto"><i class="fal fa-trash-alt fa-2x" data-toggle="modal" data-target="#deleteAllNotify"></i></button>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center flex-column">
+    <div class="notify border p-3">
+      <!-- eğer bildirim türü yorum ise -->
+      <i class="fal fa-comment-alt-edit fa-2x text-info"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Görevinize yorum yaptı. </span>
+      <!-- yoruma tıklanınca gönderi sayfasına gidecek -->
+      <a href="" class="text-secondary ml-1"> Yoruma Git</a>
+    </div>
+    <div class="notify border p-3">
+      <!-- eğer bildirim türü yorum ise -->
+      <i class="fal fa-heart fa-2x text-danger"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Sizinle arkadaş olmak istiyor...</span>
+      <div class="pl-2 d-flex">
+        <a href="" title="Kabul et"><i class="fal fa-check-circle text-success fa-action"></i></a>
+        <div class="px-1 d-inline"></div>
+        <a href="" title="Reddet"><i class="fal fa-times-circle text-danger fa-action"></i></a>
+      </div>
+      <!-- <span class="text-danger">Reddettiniz</span> -->
+      <!-- <span class="text-success">Artık arkadaşsınız</span> -->
+    </div>
+
+    <div class="notify border p-3">
+      <!-- eğer bildirim türü yorum ise -->
+      <i class="fal fa-comments fa-2x text-warning"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Sizinle bir sohbet başlattı.</span>
+      <a href="" class="text-secondary ml-1"> Sohbete Git</a>
+    </div>
+
+    <div class="notify border p-3">
+      <i class="fal fa-user-times fa-2x text-danger"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Arkadaşlık isteğinizi reddetti.</span>
+    </div>
+
+    <div class="notify border p-3">
+      <i class="fal fa-user-plus fa-2x text-success"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Arkadaşlık isteğinizi kabul etti.</span>
+    </div>
+
+    <div class="notify border p-3">
+      <i class="fal fa-handshake fa-2x text-success"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Teklifinizi kabul etti.</span>
+      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
+      <a href="" class="text-secondary ml-1"> Göreve Git</a>
+    </div>
+
+    <div class="notify border p-3">
+      <i class="far fa-handshake fa-2x text-danger"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Teklifinizi reddetti.</span>
+      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
+      <a href="" class="text-secondary ml-1"> Göreve Git</a>
+    </div>
+
+    <div class="notify border p-3">
+      <i class="far fa-bell fa-2x text-primary"></i>
+      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
+      <span class="text-md"> Görevinizi hatırlatıyor.</span>
+      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
+      <a href="" class="text-secondary ml-1"> Göreve Git</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="modal" id="deleteAllNotify" tabindex="-1" role="dialog" aria-labelledby="deleteAllNotifyTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content pt-3 fade-in radius-0 bg-modal">
+      <div class="modal-body">
+        <div class="mail-info-icon text-center">
+          <i class="fal fa-trash-alt fa-6x text-danger"></i>
+        </div>
+        <div class="text-center mt-2">
+          <p class="lead">Bildirimlerinizi silmeniz halinde tekrardan geri gelmeyecektir. Bütün bildirimlerinizi silmek istediğinize emin misiniz?</p>
+          <div class="mt-2"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger radius-0" data-dismiss="modal">İptal</button>
+        <button type="button" class="btn btn-success radius-0" data-dismiss="modal">Onayla</button>
+      </div>
+    </div>
+  </div>
+</div>

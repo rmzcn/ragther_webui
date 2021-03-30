@@ -1,0 +1,15 @@
+.current-profile-photo{
+
+}
+.current-profile-photo img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto!important;
+  display: block;
+}
+
+.bg-modal{
+  background-color: rgba(250, 250, 250);
+}

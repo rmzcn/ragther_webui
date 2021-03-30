@@ -1,6 +1,6 @@
-<div class="container mt-6 bg-white profile-container">
+<div class="container mt-6 bg-white profile-container border">
   <div class="row justify-content-end">
-    <i class="fas fa-check-circle fa-2x pt-2 pr-2 text-success"></i>
+    <i class="fal fa-check-circle fa-2x pt-2 pr-2 text-success"></i>
   </div>
   <div class="row p-3">
     <div class="col-md-3">
@@ -66,9 +66,9 @@
             <div *ngIf="isSelf; then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>
               <div class="action-element mx-3">
-                <a href="" class="d-block text-decoration-none btn btn-outline-dark">
-                  <i class="fas fa-user-cog fa-lg d-flex justify-content-center text-center"></i>
-                  <p class="text-center m-0">Profili Düzenle</p>
+                <a routerLink='/settings' class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-dark">
+                  <i class="fal fa-user-cog fa-lg d-flex justify-content-center text-center"></i>
+                  <p class="text-center m-0">Ayarlar</p>
                 </a>
               </div>
             </ng-template>
@@ -78,7 +78,7 @@
               <ng-template #isFriendBlock>
                 <div class="action-element mx-3">
                   <a href="" class="d-block text-decoration-none btn btn-outline-danger">
-                    <i class="fas fa-user-slash fa-lg d-flex justify-content-center text-center"></i>
+                    <i class="fal fa-user-slash fa-lg d-flex justify-content-center text-center"></i>
                     <p class="text-center m-0">Kişiyi Çıkart</p>
                   </a>
                 </div>
@@ -90,7 +90,7 @@
                 <ng-template #friendshipNotSended>
                   <div class="action-element mx-3">
                     <a href="" class="d-block text-decoration-none btn btn-outline-info">
-                      <i class="fas fa-user-plus fa-lg d-flex justify-content-center text-center"></i>
+                      <i class="fal fa-user-plus fa-lg d-flex justify-content-center text-center"></i>
                       <p class="text-center m-0">Arkadaş Ekle</p>
                     </a>
                   </div>
@@ -99,7 +99,7 @@
                 <ng-template #friendshipSended>
                   <div class="action-element mx-3">
                     <a href="" class="d-block text-decoration-none btn btn-outline-info">
-                      <i class="fas fa-user-clock fa-lg d-flex justify-content-center text-center"></i>
+                      <i class="fal fa-user-clock fa-lg d-flex justify-content-center text-center"></i>
                       <p class="text-center m-0">Bekleniyor</p>
                     </a>
                   </div>
@@ -108,7 +108,7 @@
 
               <div class="action-element mx-3">
                 <a href="" class="d-block text-decoration-none btn btn-outline-success">
-                  <i class="fas fa-envelope fa-lg d-flex justify-content-center text-center"></i>
+                  <i class="fal fa-envelope fa-lg d-flex justify-content-center text-center"></i>
                   <p class="text-center m-0">Mesaj Gönder</p>
                 </a>
               </div>

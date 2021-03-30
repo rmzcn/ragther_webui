@@ -19,3 +19,11 @@ html, body {
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
+
+
+.notifications{
+  z-index: 100;
+  position: fixed;
+  bottom: 70px;
+  right: 40px;
+}

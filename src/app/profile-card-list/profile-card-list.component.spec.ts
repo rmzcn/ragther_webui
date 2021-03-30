@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PasswordReminderComponent } from './password-reminder.component';
+import { ProfileCardListComponent } from './profile-card-list.component';
 
-describe('PasswordReminderComponent', () => {
-  let component: PasswordReminderComponent;
-  let fixture: ComponentFixture<PasswordReminderComponent>;
+describe('ProfileCardListComponent', () => {
+  let component: ProfileCardListComponent;
+  let fixture: ComponentFixture<ProfileCardListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PasswordReminderComponent ]
+      declarations: [ ProfileCardListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PasswordReminderComponent);
+    fixture = TestBed.createComponent(ProfileCardListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

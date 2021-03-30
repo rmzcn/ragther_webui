@@ -1,0 +1,108 @@
+<div class="option-panel">
+  <div class="row justify-content-center py-2">
+    <h6 class="display-4">İlgilendiklerin</h6>
+  </div>
+  <hr class="my-2">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="container mt-2">
+        <h4 class="font-weight-light">İlgilendiğin etiketler aşağıda listelenmiştir.</h4>
+        <div class="tags">
+          <div class="tag">
+            <div class="tag-name">Ödev</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Ödev</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Ödev</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Ödev</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Lorem ipsum dolor sit amet</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Lorem ipsum dolor sit amet</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="tag">
+            <div class="tag-name">Ödev</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+        </div>
+        <div class="tag-list mt-3">
+          <div class="form-group">
+            <label for="existingTags">Etiketler</label>
+            <select multiple class="form-control" id="existingTags" size="6">
+              <option>Ödev - By: @rmzncn</option>
+              <option>Ücretli - By: @rmzncn</option>
+              <option>Yazılım - By: @rmzncn</option>
+              <option>Eğitim - By: @rmzncn</option>
+              <option>Seminer - By: @rmzncn</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+          <label for=""></label>
+          <input type="text" class="form-control" placeholder="Etiket adı girin" aria-label="Etiket adı" aria-describedby="addTag">
+          <div class="input-group-append">
+            <button class="btn btn-outline-success radius-0" data-toggle="modal" data-target="#addNewTagModal">Ekle</button>
+          </div>
+        </div>
+
+        <p class="lead text-danger text-center font-weight-bold"><i class="fas fa-exclamation-triangle fa-lg"></i> Yeni etiket oluşturma hakkınız kalmadı.</p>
+
+        <p class="text-small">Etiket seçme işlemi "Etiketler" başlığının altında bulunan listeden seçilmelidir. Yukarıdaki boşluğa yazılan etiket otomatik olarak taranacak. Eğer yazılan etiket mevcut ise listeen seçip ekleyin. Eğer değil ise yeni etiket oluşturmak için size uyarı çıkacaktır.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" id="addNewTagModal" tabindex="-1" role="dialog" aria-labelledby="addNewTagModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content fade-in radius-0 bg-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addNewTagTitle">Bilgi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mail-info-icon text-center">
+          <i class="fas fa-hashtag fa-6x"></i>
+        </div>
+        <div class="add-tag-title text-center mt-2">
+          <span class="text-danger font-weight-bold">#okul</span> Etiketi sistem üzerinde <span class="font-weight-bold">kayıtlı değil.</span> Sizin oluşturduğunuz bilgisini içeren bir etiket oluşturacaksınız. Bu etiketi oluşturmayı onaylıyor musunuz ?
+          <div class="mt-2"></div>
+          <span class="text-small"><i class="fas fa-info-circle fa-lg text-info"></i> Unutmayın günde sadece 3 adet etiket oluşturabilirsiniz.</span>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary radius-0" data-dismiss="modal">İptal</button>
+        <button type="button" class="btn btn-success radius-0" data-dismiss="modal">Onayla</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="post-list py-4">
 
-<div class="post mb-3 bg-white shaded-component">
+<div class="post mb-3 bg-white shaded-component border">
     <!-- post info -->
     <div class="row">
       <div class="post-user px-3">
@@ -12,7 +12,7 @@
               <a href="" class="text-decoration-none"><h5 class="d-inline-block">@rmzncn</h5></a>
             </div>
             <div class="post-owner-location">
-              <p class="lead"><i class="fas fa-map-marker-alt text-danger"></i> Kızılyaka Mah. Köy içi sk. No: 626 Ula/Muğla</p>
+              <p class="lead"><i class="fal fa-map-marker-alt text-danger"></i> Kızılyaka Mah. Köy içi sk. No: 626 Ula/Muğla</p>
             </div>
         </div>
       </div>
@@ -39,15 +39,21 @@
       <div class="col-md-3 border-post">
         <div class="right-info-table">
           <div class="right-table-date">
-            <h5><i class="fas fa-calendar-check"></i> Gerçekleştirme Tarihi</h5>
+            <h5><i class="fal fa-calendar-check"></i> Gerçekleştirme Tarihi</h5>
             <p class="lead m-0">17/12/2021 Saat: 11:55</p>
             <p class="text-muted">4 gün 10 saat kaldı...</p>
             <div class="right-table-reminder-btn">
-              <button class="btn btn-success btn-block radius-0"><i class="far fa-bell fa-lg"></i> Hatırlat</button>
+
+              <!-- eğer saati 1 saatten az kaldıysa turuncu  -->
+              <!-- eğer saati geçtiyse kırmızı yanacak  -->
+              <button class="btn btn-success btn-block radius-0"><i class="fal fa-bell fa-lg"></i> Hatırlat</button>
+
+              <!-- eğer hatırlatıldıysa -->
+              <!-- <button class="btn btn-secondary btn-block radius-0"><i class="fal fa-check fa-lg"></i> Hatırlatıldı</button> -->
             </div>
           </div>
           <div class="right-table-tags mt-3">
-            <h5><i class="fas fa-hashtag"></i> Etiketler</h5>
+            <h5><i class="fal fa-hashtag"></i> Etiketler</h5>
             <div class="row pl-3">
               <a href="" class="tag text-decoration-none">#Ödev</a>
               <a href="" class="tag text-decoration-none">#Ücretli</a>
@@ -59,9 +65,10 @@
             <p class="badge font-weight-light">Paylaşıldı: 17/12/2021 Saat: 11:55</p>
           </div>
           <div class="right-table-share">
-            <button class="btn btn-outline-dark btn-block mt-1 radius-0">Öne Çıkar</button>
+            <!-- <button class="btn btn-outline-dark btn-block mt-1 radius-0">Öne Çıkar</button> -->
+            <a href="" class="mt-2 d-block text-info radius-0"><i class="fal fa-calendar-edit"></i> Görevi Düzenle</a>
+            <a href="" class="mt-2 d-inline-block text-danger radius-0"><i class="fal fa-times-square"></i> Görevi Kaldır</a>
           </div>
-
         </div>
       </div>
     </div>
@@ -70,16 +77,16 @@
     <div class="row">
       <div class="post-info">
         <div class="post-like">
-          <button class="btn"><i class="fas fa-check fa-lg text-info"></i> 4 Beğenme</button>
-          <!-- fas fa-check-double eğer like atılırsa -->
+          <button class="btn"><i class="fal fa-check fa-lg text-info"></i> 4 Beğenme</button>
+          <!-- fal fa-check-double eğer like atılırsa -->
 
         </div>
         <div class="post-comment">
-          <button  data-toggle="modal" data-target="#postID" class="btn"><i class="far fa-comments fa-lg text-secondary"></i> 5 Yorum</button>
+          <button  data-toggle="modal" data-target="#postID" class="btn"><i class="fal fa-comments fa-lg text-info"></i> 5 Yorum</button>
 
         </div>
         <div class="post-reminders">
-          <button class="btn"><i class="far fa-bell fa-lg text-secondary"></i> 10 Hatırlatma</button>
+          <button class="btn"><i class="fal fa-bell fa-lg text-primary"></i> 10 Hatırlatma</button>
 
         </div>
         <div class="post-offers"></div>
@@ -87,11 +94,11 @@
     </div>
     <!-- post actions -->
     <div class="row"></div>
-    <div id="postID" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="postID" class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content radius-0">
+        <div class="modal-content fade-in radius-0">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Detaylar</h5>
+            <h5 class="display-4 font-size-md" id="exampleModalLongTitle">Yorumlar</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -112,7 +119,7 @@
 
               </div>
             </div>
-            <button type="button" class="btn btn-info radius-0 btn-block"><i class="far fa-paper-plane"></i> Gönder</button>
+            <button type="button" class="btn btn-info radius-0 btn-block"><i class="fal fa-paper-plane"></i> Gönder</button>
 
           </div>
         </div>
@@ -120,247 +127,6 @@
     </div>
 </div>
 
-
-<div class="post mb-3 bg-white shaded-component">
-  <!-- post info -->
-  <div class="row">
-    <div class="post-user px-3">
-        <div class="profile-image">
-          <a href=""><img src="../assets/img/profile_img.jpg" alt=""></a>
-        </div>
-        <div class="post-owner">
-          <div class="post-owner-name ">
-            <a href="" class="text-decoration-none"><h5 class="d-inline-block">@rmzncn</h5></a>
-          </div>
-          <div class="post-owner-location">
-            <p class="lead"><i class="fas fa-map-marker-alt text-danger"></i> Kızılyaka Mah. Köy içi sk. No: 626 Ula/Muğla</p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <!-- post desc -->
-  <div class="row mt-3">
-    <div class="col-md-9  py-2">
-      <div class="post-desc">
-        <div class="post-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur autem aliquid perferendis reiciendis, consectetur voluptatem veniam sunt, fugiat possimus corporis doloremque soluta cumque officiis et tempora totam maiores cum nisi.
-        </div>
-        <div class="post-image mt-3">
-          <img src="../assets/img/back.jpg" alt="">
-        </div>
-        <div class="post-work-with mt-3">
-          <p class="work-with-title">İle Birlikte:</p>
-          <div class="coworkers">
-            <a href="" class="mr-1"><span class="badge badge-primary">@adfsfd</span></a>
-            <a href=""><span class="badge badge-primary">@adfsfd</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 border-post">
-      <div class="right-info-table">
-        <div class="right-table-date">
-          <h5><i class="fas fa-calendar-check"></i> Gerçekleştirme Tarihi</h5>
-          <p class="lead m-0">17/12/2021 Saat: 11:55</p>
-          <p class="text-muted">4 gün 10 saat kaldı...</p>
-          <div class="right-table-reminder-btn">
-            <button class="btn btn-success btn-block radius-0"><i class="far fa-bell fa-lg"></i> Hatırlat</button>
-          </div>
-        </div>
-        <div class="right-table-tags mt-3">
-          <h5><i class="fas fa-hashtag"></i> Etiketler</h5>
-          <div class="row pl-3">
-            <a href="" class="tag text-decoration-none">#Ödev</a>
-            <a href="" class="tag text-decoration-none">#Ücretli</a>
-            <a href="" class="tag text-decoration-none">#Acil</a>
-            <a href="" class="tag text-decoration-none">#Matematik</a>
-          </div>
-        </div>
-        <div class="right-table-publish-date">
-          <p class="badge font-weight-light">Paylaşıldı: 17/12/2021 Saat: 11:55</p>
-        </div>
-        <div class="right-table-share">
-          <button class="btn btn-outline-dark btn-block mt-1 radius-0">Öne Çıkar</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- post info of like, comment, offer and reminders  -->
-  <hr>
-  <div class="row">
-    <div class="post-info">
-      <div class="post-like">
-        <button class="btn"><i class="fas fa-check fa-lg text-info"></i> 4 Beğenme</button>
-        <!-- fas fa-check-double eğer like atılırsa -->
-
-      </div>
-      <div class="post-comment">
-        <button  data-toggle="modal" data-target="#postID" class="btn"><i class="far fa-comments fa-lg text-secondary"></i> 5 Yorum</button>
-
-      </div>
-      <div class="post-reminders">
-        <button class="btn"><i class="far fa-bell fa-lg text-secondary"></i> 10 Hatırlatma</button>
-
-      </div>
-      <div class="post-offers"></div>
-    </div>
-  </div>
-  <!-- post actions -->
-  <div class="row"></div>
-  <div id="postID" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content radius-0">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Detaylar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <post-comment></post-comment>
-        </div>
-        <div class="modal-footer">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text radius-0  border-info">
-                <label for="offerCommentPOSTID" class="m-0 p-0">Teklif</label>
-                <input class="ml-2" type="checkbox" id="offerCommentPOSTID" aria-label="Teklif Olarak İşaretle">
-              </div>
-            </div>
-            <input type="text" class="form-control radius-0 border-info" placeholder="Yorumunu yaz" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-
-            </div>
-          </div>
-          <button type="button" class="btn btn-info radius-0 btn-block"><i class="far fa-paper-plane"></i> Gönder</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="post mb-3 bg-white shaded-component">
-  <!-- post info -->
-  <div class="row">
-    <div class="post-user px-3">
-        <div class="profile-image">
-          <a href=""><img src="../assets/img/profile_img.jpg" alt=""></a>
-        </div>
-        <div class="post-owner">
-          <div class="post-owner-name ">
-            <a href="" class="text-decoration-none"><h5 class="d-inline-block">@rmzncn</h5></a>
-          </div>
-          <div class="post-owner-location">
-            <p class="lead"><i class="fas fa-map-marker-alt text-danger"></i> Kızılyaka Mah. Köy içi sk. No: 626 Ula/Muğla</p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <!-- post desc -->
-  <div class="row mt-3">
-    <div class="col-md-9  py-2">
-      <div class="post-desc">
-        <div class="post-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur autem aliquid perferendis reiciendis, consectetur voluptatem veniam sunt, fugiat possimus corporis doloremque soluta cumque officiis et tempora totam maiores cum nisi.
-        </div>
-        <div class="post-image mt-3">
-          <img src="../assets/img/back.jpg" alt="">
-        </div>
-        <div class="post-work-with mt-3">
-          <p class="work-with-title">İle Birlikte:</p>
-          <div class="coworkers">
-            <a href="" class="mr-1"><span class="badge badge-primary">@adfsfd</span></a>
-            <a href=""><span class="badge badge-primary">@adfsfd</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 border-post">
-      <div class="right-info-table">
-        <div class="right-table-date">
-          <h5><i class="fas fa-calendar-check"></i> Gerçekleştirme Tarihi</h5>
-          <p class="lead m-0">17/12/2021 Saat: 11:55</p>
-          <p class="text-muted">4 gün 10 saat kaldı...</p>
-          <div class="right-table-reminder-btn">
-            <button class="btn btn-success btn-block radius-0"><i class="far fa-bell fa-lg"></i> Hatırlat</button>
-          </div>
-        </div>
-        <div class="right-table-tags mt-3">
-          <h5><i class="fas fa-hashtag"></i> Etiketler</h5>
-          <div class="row pl-3">
-            <a href="" class="tag text-decoration-none">#Ödev</a>
-            <a href="" class="tag text-decoration-none">#Ücretli</a>
-            <a href="" class="tag text-decoration-none">#Acil</a>
-            <a href="" class="tag text-decoration-none">#Matematik</a>
-          </div>
-        </div>
-        <div class="right-table-publish-date">
-          <p class="badge font-weight-light">Paylaşıldı: 17/12/2021 Saat: 11:55</p>
-        </div>
-        <div class="right-table-share">
-          <button class="btn btn-outline-dark btn-block mt-1 radius-0">Öne Çıkar</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- post info of like, comment, offer and reminders  -->
-  <hr>
-  <div class="row">
-    <div class="post-info">
-      <div class="post-like">
-        <button class="btn"><i class="fas fa-check fa-lg text-info"></i> 4 Beğenme</button>
-        <!-- fas fa-check-double eğer like atılırsa -->
-
-      </div>
-      <div class="post-comment">
-        <button  data-toggle="modal" data-target="#postID" class="btn"><i class="far fa-comments fa-lg text-secondary"></i> 5 Yorum</button>
-
-      </div>
-      <div class="post-reminders">
-        <button class="btn"><i class="far fa-bell fa-lg text-secondary"></i> 10 Hatırlatma</button>
-
-      </div>
-      <div class="post-offers"></div>
-    </div>
-  </div>
-  <!-- post actions -->
-  <div class="row"></div>
-  <div id="postID" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content radius-0">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Detaylar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <post-comment></post-comment>
-        </div>
-        <div class="modal-footer">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text radius-0  border-info">
-                <label for="offerCommentPOSTID" class="m-0 p-0">Teklif</label>
-                <input class="ml-2" type="checkbox" id="offerCommentPOSTID" aria-label="Teklif Olarak İşaretle">
-              </div>
-            </div>
-            <input type="text" class="form-control radius-0 border-info" placeholder="Yorumunu yaz" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-
-            </div>
-          </div>
-          <button type="button" class="btn btn-info radius-0 btn-block"><i class="far fa-paper-plane"></i> Gönder</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

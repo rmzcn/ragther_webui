@@ -1,10 +1,5 @@
 <div class="container mt-6 ">
-  <!-- top profiles row -->
-  <div class="row shaded-component">
-    <div class="top-profiles">
 
-    </div>
-  </div>
   <!-- acitons bar row -->
   <div class="row">
     <div class="col-6">
@@ -15,104 +10,11 @@
     </div>
     <div class="col-6">
       <div class="modal-area float-right">
-        <!-- Button trigger modal -->
+      <!-- Button trigger modal -->
       <button type="button" class="btn-none btn-sm bg-grey radius-0 text-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Sırala / Filtrele
       </button>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content radius-0">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Sıralama | Filtreleme</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="sort-area">
-                <h5>Sırala</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Konum: Önce en yakın
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Tarih: Önce en uzak
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                  <label class="form-check-label" for="flexRadioDefault3">
-                    Tarih: En yakın zaman
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-                  <label class="form-check-label" for="flexRadioDefault4">
-                    Tarih: En uzak zaman
-                  </label>
-                </div>
-              </div>
-              <hr>
-              <div class="filter-area">
-                <h5>Filtrele</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault1">
-                    Sadece yakınımdakiler
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label text-success" for="flexCheckDefault2">
-                    Tamamlanmış
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label text-working" for="flexCheckDefault3">
-                    Devam eden
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label text-danger" for="flexCheckDefault4">
-                    İptal edilmiş
-                  </label>
-                </div>
-                <br>
-                <h6>Etikete Göre Filtrele</h6>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">#</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Ekitket Adı" aria-label="tagName" aria-describedby="basic-addon1">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-warning" type="button">Ekle</button>
-                  </div>
-                </div>
-                <div class="added-tags">
-                  <span class="badge badge-orange">New</span>
-                  <span class="badge badge-orange">New</span>
-                  <span class="badge badge-orange">New</span>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer justify-content-center">
-              <div class="col-6">
-                <button type="button" class="btn btn-success w-100 radius-0"> Uygula</button>
-              </div>
-              <div class="col-6">
-                <button data-dismiss="modal" type="button" class="btn w-100 btn-secondary radius-0">İptal</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       </div>
     </div>
   </div>
@@ -126,4 +28,102 @@
     </div>
   </div>
 
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content fade-in radius-0 pt-2">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Sıralama | Filtreleme</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        <div class="sort-area">
+          <h5>Sırala</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Konum: Önce en yakın
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Tarih: Önce en uzak
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexRadioDefault3">
+              Tarih: En yakın zaman
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexRadioDefault4">
+              Tarih: En uzak zaman
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div class="filter-area">
+          <h5>Filtrele</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault1">
+              Sadece yakınımdakiler
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label text-success" for="flexCheckDefault2">
+              Tamamlanmış
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label text-working" for="flexCheckDefault3">
+              Devam eden
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label text-danger" for="flexCheckDefault4">
+              İptal edilmiş
+            </label>
+          </div>
+          <br>
+          <h6>Etikete Göre Filtrele</h6>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">#</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Ekitket Adı" aria-label="tagName" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+              <button class="btn btn-outline-warning" type="button">Ekle</button>
+            </div>
+          </div>
+          <div class="added-tags">
+            <!-- üstüne tıklanınca otomatik kaldırılsın -->
+            <span class="badge badge-orange mr-1">New</span>
+            <span class="badge badge-orange mr-1">New</span>
+            <span class="badge badge-orange mr-1">New</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div class="col-6">
+          <button type="button" class="btn btn-success w-100 radius-0"> Uygula</button>
+        </div>
+        <div class="col-6">
+          <button data-dismiss="modal" type="button" class="btn w-100 btn-secondary radius-0">İptal</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
