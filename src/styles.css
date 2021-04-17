@@ -123,9 +123,65 @@
   transition: height 2s;
 }
 
+/* LOADER ANIMATION START */
+/*
+  ---usage---
+  <div class="loader"></div>
+
+ */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #b134db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* LOADER ANIMATION END */
 
 
 
 .border-radius-2{
   border-radius: 5%;
+}
+/*
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+.info-success{
+  background-color: rgb(24, 189, 134);
+  color: rgb(255, 255, 255);
+}
+
+.info-danger{
+  background-color: rgb(153, 0, 0);
+  color: white;
+}
+
+.info-warning{
+  background-color: rgb(170, 113, 8);
+  color: white;
+}
+
+.info-default{
+  background-color: rgb(51, 77, 221);
+  color: white;
+}
+
+.notification-message{
+  background-color: rgb(12, 12, 12);
+  color: tomato
 }

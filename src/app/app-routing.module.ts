@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContentAddComponent } from './content-add/content-add.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MessagingChatsComponent } from './messaging-chats/messaging-chats.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { NotificationComponent } from './notification/notification.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -30,6 +31,11 @@ const routes: Routes = [
   {path: 'notifications', component: NotificationComponent},
   {path: 'addcontent', component: ContentAddComponent},
   {path: 'search', component: SearchComponent},
+
+  {
+    path: 'chat/:chatID',
+    component: MessagingComponent,
+  },
 
   {
     path: 'todo/:postID',

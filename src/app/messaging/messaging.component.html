@@ -1,12 +1,39 @@
 <div class="">
-  <div class="container mt-6 bg-white shaded-component2 messaging-area">
+  <div class="container bg-white shaded-component2 messaging-area"
+  [ngClass]="{'mt-6': !isMobile, 'mt-side-navbar': isMobile}">
+
     <div class="row">
-      <div class="col-md-4 chat-area">
-        <messaging-chats></messaging-chats>
-      </div>
-      <div class="col-md-8 texting-area">
-        <messaging-texting></messaging-texting>
-      </div>
+      <div *ngIf="isMobile; then thenBlock else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <div *ngIf="isMenuMain; then users else chat"></div>
+
+        <ng-template #users>
+          <div class="col-md-4 chat-area">
+            <messaging-chats></messaging-chats>
+          </div>
+        </ng-template>
+
+
+        <ng-template #chat>
+          <div class="col-md-8 texting-area full-height fade-in">
+            <messaging-texting></messaging-texting>
+          </div>
+        </ng-template>
+
+
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <div class="col-md-4 chat-area">
+          <messaging-chats></messaging-chats>
+        </div>
+        <div class="col-md-8 texting-area fade-in">
+          <messaging-texting></messaging-texting>
+        </div>
+      </ng-template>
+
+
     </div>
   </div>
 </div>

@@ -1,10 +1,17 @@
 <profile-header></profile-header>
 <profile-content></profile-content>
-<div class="container mt-4">
+<div class="container mt-4 fade-in">
   <!-- EĞER PROFİL GİZLİ İSE ASAĞIDAKİ KISIM GÖSTERİLECEK -->
 
-  <profile-secret-banner></profile-secret-banner>
+  <div *ngIf="isSecretProfile; then hiddenProfileBlock else nonHiddenProfileBlock"></div>
 
-  <!-- <div class="row justify-content-center work-head-title">Görevler</div>
-  <profile-todos></profile-todos> -->
+  <ng-template #hiddenProfileBlock>
+    <profile-secret-banner></profile-secret-banner>
+  </ng-template>
+  <ng-template #nonHiddenProfileBlock>
+    <div class="row justify-content-center work-head-title">Görevler</div>
+    <profile-todos></profile-todos>
+  </ng-template>
+
+
 </div>

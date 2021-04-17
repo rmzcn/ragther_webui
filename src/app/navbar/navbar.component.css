@@ -24,6 +24,12 @@
   margin-left: 80px;
 }
 
+.message-badge{
+  display: inline-block;
+  position: absolute;
+  margin-left: 290px;
+}
+
 
 /* RESPONSIVE NAVBAR */
 
@@ -51,8 +57,11 @@
   }
 
   .notification-badge{
-    display: inline-block;
-    position: absolute;
+    margin-left: 195px;
+    margin-top: 5px;
+  }
+
+  .message-badge{
     margin-left: 195px;
     margin-top: 5px;
   }

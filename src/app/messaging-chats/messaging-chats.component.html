@@ -1,14 +1,14 @@
-<div class="row flex-column">
+<div class="row flex-column ">
 
   <div class="message-actions-area chat-top">
-    <div class="message-actions">
+    <div class="message-actions pt-1">
       <div class="new-message">
         <button class="btn" title="Yeni Mesaj" data-toggle="modal" data-target="#modalNewMessage"><i class="fal fa-feather-alt fa-2x"></i></button>
       </div>
       <div class="area-title pt-2 lead">
         Mesajlaşma
       </div>
-      <div class="log-out pr-4 pt-1">
+      <div class="log-out pr-4">
         <button class="btn" title="Çıkış"><i class="fal fa-sign-out-alt fa-2x"></i></button>
       </div>
     </div>
@@ -16,7 +16,7 @@
 
   <div class="overflow-y-scroll full-width pt-3">
     <!-- users -->
-    <a href="" class="chat-link">
+    <a [routerLink]="['/chat/23424']" class="chat-link">
       <div class="chat py-1 px-2">
         <div class="chat-user">
           <div class="chat-user-img">
@@ -35,6 +35,7 @@
     </a>
   </div>
 </div>
+
 
 
 <div class="modal fade" id="modalNewMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -63,6 +64,7 @@
               </div>
             </a>
           </div>
+
         </div>
       </div>
       <div class="modal-footer">
@@ -71,3 +73,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+

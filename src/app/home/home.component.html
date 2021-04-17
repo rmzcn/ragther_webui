@@ -1,35 +1,40 @@
-<div class="container mt-6 ">
+<div *ngIf="isPageLoaded; then contentBlock else loaderAnim"></div>
 
-  <!-- acitons bar row -->
-  <div class="row">
-    <div class="col-6">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-sm btn-outline-secondary radius-0 btn-same-size ">Sana Özel</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary radius-0 btn-same-size ">Yakınlarda</button>
+<ng-template #contentBlock>
+  <div class="container mt-6 fade-in">
+    <!-- acitons bar row -->
+    <div class="row">
+      <div class="col-6">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-sm btn-outline-secondary radius-0 btn-same-size ">Sana Özel</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary radius-0 btn-same-size ">Yakınlarda</button>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="modal-area float-right">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn-none btn-sm bg-grey radius-0 text-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Sırala / Filtrele
+        </button>
+
+        </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="modal-area float-right">
-      <!-- Button trigger modal -->
-      <button type="button" class="btn-none btn-sm bg-grey radius-0 text-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Sırala / Filtrele
-      </button>
 
+    <!-- contents row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="">
+          <home-todos></home-todos>
+        </div>
       </div>
     </div>
   </div>
+</ng-template>
 
-  <!-- contents row -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="">
-        <home-todos></home-todos>
-      </div>
-    </div>
-  </div>
-
-</div>
-
+<ng-template #loaderAnim>
+  <div class="loader mx-auto mt-6"></div>
+</ng-template>
 
 
 <!-- Modal -->
@@ -109,7 +114,6 @@
             </div>
           </div>
           <div class="added-tags">
-            <!-- üstüne tıklanınca otomatik kaldırılsın -->
             <span class="badge badge-orange mr-1">New</span>
             <span class="badge badge-orange mr-1">New</span>
             <span class="badge badge-orange mr-1">New</span>
@@ -127,3 +131,5 @@
     </div>
   </div>
 </div>
+
+

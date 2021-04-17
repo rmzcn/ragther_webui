@@ -38,11 +38,15 @@ import { NotificationComponent } from './notification/notification.component';
 import { SearchComponent } from './search/search.component';
 import { TagComponent } from './tag/tag.component';
 import { TagListComponent } from './tag-list/tag-list.component';
-import { ProfileCardListComponent } from './profile-card-list/profile-card-list.component';
 import { ProfileSecretBannerComponent } from './profile-secret-banner/profile-secret-banner.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { PostComponent } from './post/post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DemoMaterialModule } from './material-module';
+import { MatNativeDateModule } from '@angular/material/core';
+import { InfoBarComponent } from './info-bar/info-bar.component';
 
 
 @NgModule({
@@ -81,13 +85,18 @@ import { PostComponent } from './post/post.component';
     SearchComponent,
     TagComponent,
     TagListComponent,
-    ProfileCardListComponent,
     ProfileSecretBannerComponent,
     PostDetailComponent,
     PostEditComponent,
     PostComponent,
+    InfoBarComponent,
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
+    DemoMaterialModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

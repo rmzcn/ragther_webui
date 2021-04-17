@@ -6,11 +6,19 @@
 }
 
 .texting-area{
-  height: calc(100vh - 200px);
+  height: calc(100vh - 120px);
   position: relative;
 }
 
 .chat-area{
-  height: calc(100vh - 200px);
+  height: calc(100vh - 120px);
   position: relative;
+}
+
+.full-height{
+  min-height: calc(100vh - 160px);
+}
+
+.mt-side-navbar{
+  margin-top: 55px;
 }

@@ -2,8 +2,10 @@
 
 }
 .current-profile-photo img{
-  width: 100px;
-  height: 100px;
+  width: 80px!important;
+  height: 80px!important;
+  max-width: 80px;
+  max-height: 80px;
   object-fit: cover;
   border-radius: 50%;
   margin: 0 auto!important;

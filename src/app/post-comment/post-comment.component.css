@@ -21,9 +21,17 @@
 
 .comment-list{
   max-height: 400px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .offer-act-reject:hover{
   color: rgb(126, 21, 21);
+}
+
+.comment{
+  margin-bottom: 20px;
+  border-bottom-style: solid;
+  padding-bottom: 10px;
+  border-width: 0.1px;
+  border-color: rgb(206, 206, 206);
 }

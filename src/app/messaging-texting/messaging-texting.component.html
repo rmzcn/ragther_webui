@@ -1,23 +1,17 @@
-<div class="row flex-column">
+<div class="row flex-column fade-in">
   <div class="chat-head">
     <a href="" class="text-decoration-none" title="Profile git">
-      <div class="chat-to px-3 py-1">
+      <div class="chat-to px-3 py-2">
         <div class="chat-to-img">
           <img src="../assets/img/profile_img.jpg" alt="">
         </div>
-        <div class="chat-to-name pt-1 pl-2 text-primary">
+        <div class="chat-to-name pt-2 pl-2 text-primary">
           Ramazan Can GÖLGEN
         </div>
       </div>
     </a>
-    <div class="btn-group ml-auto pr-3">
-      <button type="button" class="btn radius-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fal fa-ellipsis-v fa-lg"></i>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right radius-0">
-        <button class="dropdown-item" type="button"><i class="fal fa-trash-alt"></i> Sohbeti Sil</button>
-        <button class="dropdown-item" type="button"><i class="fal fa-ban"></i> Kişiyi Engelle</button>
-      </div>
+    <div id="forMobileBackButton" class="btn-group ml-auto pr-3 mt-1">
+      <a routerLink='../' class="btn" title="Sohbetten ayrıl"><i class="fas fa-level-up-alt fa-lg text-info"></i></a>
     </div>
   </div>
 
@@ -48,7 +42,7 @@
     <div class="input-group deneme">
       <input type="text" class="form-control p-3 radius-0 border-dark border-bottom-0 border-left-0 border-top-0" placeholder="Mesaj yaz..." aria-label="message" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn btn-outline-info radius-0 border-top-0 border-bottom-0 px-3"><i class="fal fa-paper-plane fa-lg"></i> Gönder</button>
+        <button class="btn-outline-info radius-0 border-top-0 border-right-0 border-bottom-0 px-3"><i class="fal fa-paper-plane fa-lg"></i> Gönder</button>
       </div>
     </div>
   </div>

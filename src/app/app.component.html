@@ -6,9 +6,16 @@
     <!-- <page-not-found></page-not-found> -->
     <router-outlet></router-outlet>
     <!-- <app-home></app-home> -->
-    <div id="footer">
-      <app-footer></app-footer>
-    </div>
+
+    <div *ngIf="isFooterDisplay; then showFooterBlock"></div>
+
+    <ng-template #showFooterBlock>
+      <div id="footer">
+        <app-footer></app-footer>
+      </div>
+    </ng-template>
+
+
   </div>
 </div>
 

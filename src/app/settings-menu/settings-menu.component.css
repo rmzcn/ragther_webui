@@ -5,3 +5,32 @@
 .active-option{
   background-color: rgb(238, 238, 238);
 }
+
+
+.modal-content {
+  position:fixed;
+  top:auto;
+  right:0;
+  left:0;
+  bottom:0;
+}
+
+
+#responsiveSettingsMenuButton{
+  display: none;
+}
+@media only screen and (max-width: 768px){
+  #responsiveSettingsMenuButton{
+    display: inline;
+    margin-bottom: 5px;
+  }
+  #normalSettingsMenuTitle{
+    display: none;
+  }
+  #normalSettingsMenu{
+    display: none;
+  }
+  #menuDivider{
+    display: none;
+  }
+}

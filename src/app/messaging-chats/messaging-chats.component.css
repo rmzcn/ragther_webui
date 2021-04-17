@@ -13,11 +13,11 @@
 }
 
 .full-width{
-  height: calc(100vh - 253px);
+  height: calc(100vh - 175px);
 }
 
 .chat-top{
-  height: 50px;
+  height: 60px;
   /* border-bottom-style: solid;
   border-width: 1px; */
   background-color: rgb(240, 240, 240);
@@ -65,3 +65,5 @@
 .friend-for-chat:hover{
   background-color: rgb(240, 240, 240);
 }
+
+
