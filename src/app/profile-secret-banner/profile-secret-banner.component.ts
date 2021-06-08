@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'profile-secret-banner',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileSecretBannerComponent implements OnInit {
 
   constructor() { }
+
+  @Input() secretBanner : string;
 
   ngOnInit(): void {
   }

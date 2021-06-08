@@ -11,7 +11,7 @@
 </div>
 <div id="normalSettingsMenu" class="container pb-4">
   <a routerLink="profile" class="text-decoration-none">
-    <div class="row py-2 pl-3 border setting text-dark active-option">
+    <div class="row py-2 pl-3 border setting text-dark">
       <div class="option-title">
         <i class="fal fa-user-cog"></i>
         Profilini Düzenle
@@ -42,7 +42,7 @@
       </div>
     </div>
   </a>
-  <a href="" class="text-decoration-none">
+  <a href="javascript:void(0)" (click)="logOut()" class="text-decoration-none">
     <div class="row py-2 pl-3 border setting text-dark">
       <div class="option-title">
         <i class="fal fa-sign-out-alt"></i>

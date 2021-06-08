@@ -3,107 +3,142 @@
     <div class="col-md-12">
       <div class="d-flex">
         <h5 class="display-4 font-size-md"><i class="fal fa-hand-holding-heart text-danger"></i> Bildirimleriniz</h5>
-        <button title="Bildirim Kutusunu Boşalt" class="btn text-danger ml-auto"><i class="fal fa-trash-alt fa-2x" data-toggle="modal" data-target="#deleteAllNotify"></i></button>
+        <button (click)="confirmModalForDeleteAll(confirmModal)" title="Bildirim Kutusunu Boşalt" class="btn text-danger ml-auto"><i class="fal fa-trash-alt fa-2x"></i></button>
       </div>
       <hr>
     </div>
   </div>
-  <div class="row justify-content-center flex-column">
-    <div class="notify border p-3">
-      <!-- eğer bildirim türü yorum ise -->
-      <i class="fal fa-comment-alt-edit fa-2x text-info"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Görevinize yorum yaptı. </span>
-      <!-- yoruma tıklanınca gönderi sayfasına gidecek -->
-      <a href="" class="text-secondary ml-1"> Yoruma Git</a>
-    </div>
-    <div class="notify border p-3">
-      <!-- eğer bildirim türü yorum ise -->
-      <i class="fal fa-heart fa-2x text-danger"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Sizinle arkadaş olmak istiyor...</span>
-      <div class="pl-2 d-flex">
-        <a href="" title="Kabul et"><i class="fal fa-check-circle text-success fa-action"></i></a>
-        <div class="px-1 d-inline"></div>
-        <a href="" title="Reddet"><i class="fal fa-times-circle text-danger fa-action"></i></a>
+  <div></div>
+
+
+
+  <div *ngIf="!loadProgress" class="row justify-content-center flex-column">
+
+    <div *ngFor="let notice of notices" class="notify border pl-3 pb-3 pt-2 ">
+
+
+      <div *ngIf="notice.noticeTypeId === 1" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-comment-alt-edit fa-2x text-info"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Görevinize yorum yaptı. </span>
+        <a routerLink='/todo/{{notice.relevantURL}}' class="text-secondary ml-1"> Göreve Git</a>
       </div>
-      <!-- <span class="text-danger">Reddettiniz</span> -->
-      <!-- <span class="text-success">Artık arkadaşsınız</span> -->
+
+      <!-- eğer bildirim türü like ise -->
+      <div *ngIf="notice.noticeTypeId === 2" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fas fa-heart fa-2x text-info"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Görevinizi Beğendi.</span>
+        <a routerLink='/todo/{{notice.relevantURL}}' class="text-secondary ml-1"> Göreve Git</a>
+      </div>
+
+      <!-- eğer bildirim türü arkadaşlık isteğiyse ise -->
+      <div *ngIf="notice.noticeTypeId === 3" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-heart fa-2x text-danger"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Sizinle arkadaş olmak istiyor...</span>
+        <a routerLink='/user/{{notice.ownerUserName}}' class="text-secondary ml-1 text-danger"> Profile Git</a>
+      </div>
+
+      <!-- eğer bildirim türü hatırlatma ise -->
+      <div *ngIf="notice.noticeTypeId === 4" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="far fa-bell fa-2x text-primary"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Görevinizi hatırlatıyor.</span>
+        <a routerLink='/todo/{{notice.relevantURL}}' class="text-secondary ml-1"> Göreve Git</a>
+      </div>
+
+      <!-- eğer bildirim türü arkadaşlık red ise -->
+      <div *ngIf="notice.noticeTypeId === 5" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-user-times fa-2x text-danger"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Arkadaşlık isteğinizi reddetti.</span>
+      </div>
+
+      <!-- eğer bildirim türü arkadaşlık kabul ise -->
+      <div *ngIf="notice.noticeTypeId === 6" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-user-plus fa-2x text-success"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Arkadaşlık isteğinizi kabul etti.</span>
+      </div>
+
+      <!-- eğer bildirim türü teklif kabul ise -->
+      <div *ngIf="notice.noticeTypeId === 7" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-handshake fa-2x text-success"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Teklifinizi kabul etti.</span>
+        <!-- <a routerLink='/todo/{{notice.relevantURL}}' class="text-secondary ml-1"> Göreve Git</a> -->
+      </div>
+
+      <!-- eğer bildirim türü teklif red ise -->
+      <div *ngIf="notice.noticeTypeId === 8" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="far fa-handshake fa-2x text-danger"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Teklifinizi reddetti.</span>
+        <!-- <a routerLink='/todo/{{notice.relevantURL}}' class="text-secondary ml-1"> Göreve Git</a> -->
+      </div>
+
+      <!-- eğer bildirim türü profile görüntüleme ise -->
+      <div *ngIf="notice.noticeTypeId === 9" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-eye fa-2x text-danger"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Profilinizi Görüntüledi.</span>
+      </div>
+
+      <!-- eğer bildirim türü mail güncelleme ise -->
+      <div *ngIf="notice.noticeTypeId === 10" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="far fa-envelope fa-2x text-orange"></i>
+        <span class="text-md text-danger pl-2"> Sistem - </span>
+        <span class="text-md"> Mail adresiniz güncellendi.</span>
+      </div>
+
+      <div *ngIf="notice.noticeTypeId === 11" [ngClass]="{'font-weight-bold': !notice.isRead}">
+        <i class="fal fa-comment fa-2x text-orange"></i>
+        <span class="text-md text-primary"><a routerLink='/user/{{notice.ownerUserName}}'>  @{{notice.ownerUserName}}</a></span>
+        <span class="text-md"> Bir sohbet başlattı.</span>
+        <a routerLink='/chat/{{notice.relevantURL}}' class="text-secondary ml-1"> Sohbete Git</a>
+      </div>
+
     </div>
 
-    <div class="notify border p-3">
-      <!-- eğer bildirim türü yorum ise -->
-      <i class="fas fa-heart fa-2x text-info"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Görevinizi Beğendi.</span>
-    </div>
-
-    <div class="notify border p-3">
-      <!-- eğer bildirim türü yorum ise -->
-      <i class="fal fa-comments fa-2x text-warning"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Sizinle bir sohbet başlattı.</span>
-      <a href="" class="text-secondary ml-1"> Sohbete Git</a>
-    </div>
-
-    <div class="notify border p-3">
-      <i class="fal fa-user-times fa-2x text-danger"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Arkadaşlık isteğinizi reddetti.</span>
-    </div>
-
-    <div class="notify border p-3">
-      <i class="fal fa-user-plus fa-2x text-success"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Arkadaşlık isteğinizi kabul etti.</span>
-    </div>
-
-    <div class="notify border p-3">
-      <i class="fal fa-handshake fa-2x text-success"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Teklifinizi kabul etti.</span>
-      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
-      <a href="" class="text-secondary ml-1"> Göreve Git</a>
-    </div>
-
-    <div class="notify border p-3">
-      <i class="far fa-handshake fa-2x text-danger"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Teklifinizi reddetti.</span>
-      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
-      <a href="" class="text-secondary ml-1"> Göreve Git</a>
-    </div>
-
-    <div class="notify border p-3">
-      <i class="far fa-bell fa-2x text-primary"></i>
-      <span class="text-md text-primary"><a href="">  @rmzncn</a></span>
-      <span class="text-md"> Görevinizi hatırlatıyor.</span>
-      <!-- yazıya tıklanınca gönderi sayfasına gidecek -->
-      <a href="" class="text-secondary ml-1"> Göreve Git</a>
-    </div>
 
   </div>
+
+  <div *ngIf="loadProgress" class="row justify-content-center">
+    <div class="lds-dual-ring"></div>
+    <p class="lead pt-3 pl-2">Yükleniyor...</p>
+  </div>
+
+  <div *ngIf="notices.length === 0" class="pb-4 pt-2">
+    <div class="row justify-content-center">
+      <i class="far fa-search fa-6x"></i>
+    </div>
+    <div class="text-center">
+      <h6 class="display-4"> Henüz bir bildirim mevcut değil. </h6>
+    </div>
+  </div>
+
 </div>
 
 
 
+<ng-template #confirmModal let-modal>
 
-<div class="modal" id="deleteAllNotify" tabindex="-1" role="dialog" aria-labelledby="deleteAllNotifyTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content pt-3 fade-in radius-0 bg-modal">
-      <div class="modal-body">
-        <div class="mail-info-icon text-center">
-          <i class="fal fa-trash-alt fa-6x text-danger"></i>
-        </div>
-        <div class="text-center mt-2">
-          <p class="lead">Bildirimlerinizi silmeniz halinde tekrardan geri gelmeyecektir. Bütün bildirimlerinizi silmek istediğinize emin misiniz?</p>
-          <div class="mt-2"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger radius-0" data-dismiss="modal">İptal</button>
-        <button type="button" class="btn btn-success radius-0" data-dismiss="modal">Onayla</button>
-      </div>
+  <div class="modal-body pb-0 pt-4">
+    <div class="mail-info-icon text-center">
+      <i class="fal fa-trash-alt fa-6x text-danger"></i>
+    </div>
+    <div class="text-center mt-2">
+      <p class="lead">Bildirimlerinizi silmeniz halinde tekrardan geri gelmeyecektir. Bütün bildirimlerinizi silmek istediğinize emin misiniz?</p>
+      <div class="mt-2"></div>
     </div>
   </div>
-</div>
+  <div class="modal-footer border-top-0 flex-row p-1" style="flex-wrap: nowrap;">
+      <div class="col-6 ">
+        <button type="button" class="btn btn-block btn-outline-danger radius-0" (click)="modal.close('yes')">Sil</button>
+      </div>
+      <div class="col-6 mr-0 pr-1">
+        <button type="button" class="btn btn-block btn-outline-info radius-0 " (click)="modal.close('no')">İptal</button>
+      </div>
+  </div>
+</ng-template>

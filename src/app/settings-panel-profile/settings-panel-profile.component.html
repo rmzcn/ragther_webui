@@ -3,35 +3,53 @@
     <h6 class="display-4">Porfilini Düzenle</h6>
   </div>
   <hr class="my-1">
-  <div class="row">
+  <div *ngIf="userData | async as user; else loading" class="row">
     <div class="col-md-12">
       <div class="set-profile p-3">
         <form>
           <div class="form-group">
             <label for="updateEmail">E-mail adresin</label>
-            <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" placeholder="Mail adresinizi giriniz">
+            <input #mailInput value="{{user.email}}" type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" placeholder="Mail adresinizi giriniz">
             <small id="emailHelp" class="form-text text-muted">Değiştirmek istediğiniz mailinize bir onay linki gelecektir. Onaylamanız halinde mail adresiniz değiştirilecektir.</small>
           </div>
           <div class="form-group">
             <label for="profileDescrption">Profil Açıklaman</label>
-            <textarea class="form-control" id="profileDescrption" rows="3"></textarea>
+            <textarea #descriptionInput value="{{user.profileDetail.profileDescription}}" class="form-control" id="profileDescrption" rows="3"></textarea>
           </div>
-          <div class="set-profile-img d-flex">
+
+          <div *ngIf="!fileUploadProgress" class="set-profile-img d-flex">
             <div class="current-profile-photo">
-              <img src="../assets/img/profile_img.jpg" alt="">
+              <img src='{{backendUrlBase+"/"+user.profileImageURL}}' alt="profil resmi">
             </div>
             <div class="form-group ml-4">
               <label for="profileImageUpload">Yeni Profil Fotoğrafı Yükle</label>
-              <input type="file" class="form-control-file" id="profileImageUpload">
+              <input (change)="onFileChanged($event)" type="file" class="form-control-file" id="profileImageUpload">
               <small class="form-text text-muted">Sol taraftaki resim, geçerli olan profil resmidir. Yenisini yüklemeniz halinde orada ön izlemesini görebilirsiniz.</small>
             </div>
           </div>
 
-          <button type="button" class="btn btn-info radius-0 float-right mb-3" data-toggle="modal" data-target="#updateMailModal">Tamamla</button>
+          <div *ngIf="fileUploadProgress">
+            <div class="row justify-content-center">
+              <div class="lds-dual-ring"></div>
+              <p class="lead pt-3 pl-2">Yükleniyor...</p>
+            </div>
+          </div>
+
+
+
+          <button (click)="update(mailInput,descriptionInput)" type="button" class="btn btn-info radius-0 float-right mb-3">Tamamla</button>
         </form>
       </div>
     </div>
   </div>
+
+  <ng-template #loading>
+    <div class="row justify-content-center">
+      <div class="lds-dual-ring"></div>
+      <p class="lead pt-3 pl-2">Yükleniyor...</p>
+    </div>
+  </ng-template>
+
 </div>
 
 

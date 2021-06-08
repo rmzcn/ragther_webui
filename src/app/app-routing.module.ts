@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContentAddComponent } from './content-add/content-add.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 import { MessagingChatsComponent } from './messaging-chats/messaging-chats.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -22,9 +23,10 @@ import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'user/:userID', component: ProfileComponent},
   {path: '404', component: PageNotFoundComponent},
   {path: 'chat', component: MessagingComponent},
+  {path: 'mail-update/:token', component: MailVerifyComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'forgetpass', component: PasswordReminderComponent},

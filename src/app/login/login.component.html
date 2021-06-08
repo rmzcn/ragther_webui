@@ -10,23 +10,38 @@
         </div>
         <div class="login-area-body mt-3 border">
           <div class="inputs pt-3">
-            <h6 class="display-4 m-0 text-center">Giriş</h6>
+            <h6 class="display-4 m-0 text-center">
+               Giriş
+
+            </h6>
+            <ng-template [ngIf]="passwordOrUserNameIncorrect" #LoginError>
+              <div class="text-center mt-2 p-1 w-75 mx-auto text-danger border border-danger"><i class="fal fa-exclamation-triangle"></i> Kullanıcı adı yada şifre hatalı !</div>
+            </ng-template>
             <div class="login-form px-4 pt-3">
               <form id="loginForm">
                 <div class="form-group">
                   <label for="usernameInputLogin">Kullanıcı Adı</label>
-                  <input type="text" class="form-control" id="usernameInputLogin" placeholder="Kullanıcı adınızı giriniz">
+                  <input [(ngModel)]="userName" name="usernameInputLogin" type="text" class="form-control" id="usernameInputLogin" placeholder="Kullanıcı adınızı giriniz">
                 </div>
                 <div class="form-group">
                   <label for="passwordInputLogin">Şifre</label>
-                  <input type="password" class="form-control" id="passwordInputLogin" placeholder="Şifrenizi giriniz">
+                  <input [(ngModel)]="password" name="passwordInputLogin" type="password" class="form-control" id="passwordInputLogin" placeholder="Şifrenizi giriniz">
                 </div>
               </form>
             </div>
           </div>
           <div class="login-area-footer px-4 pb-3">
             <div class="login-enter">
-              <button form="loginForm" class="btn btn-outline-dark radius-0 btn-block"> <i class="fas fa-sign-in-alt fa-lg"></i> Giriş Yap</button>
+
+              <ng-template [ngIf]="isProgress" #progressButtonBlock>
+                <button disabled form="signupForm" class="btn btn-dark radius-0 btn-block d-flex pb-1 justify-content-center">  <i class="fas fa-sign-in-alt fa-lg pt-1 mr-2"></i>  Giriş Yap <div class="ml-2" [ngClass]="{'button-loader': isProgress}"></div></button>
+              </ng-template>
+
+              <ng-template [ngIf]="!isProgress" #normalButtonBlock>
+                <button (click)="Login()" form="loginForm" class="btn btn-outline-dark radius-0 btn-block"> <i class="fas fa-sign-in-alt fa-lg"></i> Giriş Yap</button>
+              </ng-template>
+
+
             </div>
             <div class="other-actions row pt-2">
               <div class="col-md-6">

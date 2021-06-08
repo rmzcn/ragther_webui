@@ -1,17 +1,31 @@
-<profile-header></profile-header>
-<profile-content></profile-content>
-<div class="container mt-4 fade-in">
-  <!-- EĞER PROFİL GİZLİ İSE ASAĞIDAKİ KISIM GÖSTERİLECEK -->
-
-  <div *ngIf="isSecretProfile; then hiddenProfileBlock else nonHiddenProfileBlock"></div>
-
-  <ng-template #hiddenProfileBlock>
-    <profile-secret-banner></profile-secret-banner>
-  </ng-template>
-  <ng-template #nonHiddenProfileBlock>
-    <div class="row justify-content-center work-head-title">Görevler</div>
-    <profile-todos></profile-todos>
-  </ng-template>
 
 
+<div *ngIf="profileDetail | async as user; else loading">
+  <profile-header [userDetail]="user"></profile-header>
+  <div class="container mt-4 fade-in">
+    <!-- EĞER PROFİL GİZLİ İSE ASAĞIDAKİ KISIM GÖSTERİLECEK -->
+
+    <div *ngIf="secretProfile; then hiddenProfileBlock else nonHiddenProfileBlock"></div>
+    <ng-template #hiddenProfileBlock>
+      <profile-secret-banner [secretBanner]="user.profileDetail.hiddenProfileDescription"></profile-secret-banner>
+    </ng-template>
+    <ng-template #nonHiddenProfileBlock>
+      <div class="row justify-content-center work-head-title">Görevler</div>
+      <hr>
+        <div class="fade-in">
+          <home-todos (secretProfile)="setProfileStatus($event)" [userNameForProfilePage]="user.userName"></home-todos>
+        </div>
+    </ng-template>
+  </div>
 </div>
+
+<ng-template #loading let-user >
+  <div class="mt-6 row justify-content-center">
+    <div class="col-1">
+      <div class="lds-dual-ring"></div>
+      <p class="lead pt-3 pl-2">Yükleniyor...</p>
+    </div>
+  </div>
+</ng-template>
+
+

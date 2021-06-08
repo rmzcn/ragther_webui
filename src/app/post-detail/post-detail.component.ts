@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TodoService } from '../services/BackendServices/todo.service';
+import { SessionService } from '../services/BrowserServices/session.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -9,23 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class PostDetailComponent implements OnInit {
 
   public isRouteDetail: boolean;
+  public todoID: number;
 
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private todoService: TodoService, private sessionService: SessionService) { }
 
   ngOnInit(): void {
+    this.todoID = Number.parseInt(this.getPostId());
   }
-
-
-  // sadece geliştirme amacı ile yazılmıştır sonaradan silinecetir
-  // ---START---
 
   public getPostId() : string {
     return this.route.snapshot.paramMap.get("postID");
   }
-
-  // ---END---
-
-
-
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from "ngx-bootstrap/modal";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,10 +44,12 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from './material-module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InfoBarComponent } from './info-bar/info-bar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MailVerifyComponent } from './mail-verify/mail-verify.component';
+import { EmptychatComponent } from './emptychat/emptychat.component';
 
 
 @NgModule({
@@ -90,10 +93,12 @@ import { InfoBarComponent } from './info-bar/info-bar.component';
     PostEditComponent,
     PostComponent,
     InfoBarComponent,
+    MailVerifyComponent,
+    EmptychatComponent,
   ],
   imports: [
-    FormsModule,
     HttpClientModule,
+    FormsModule,
     DemoMaterialModule,
     ReactiveFormsModule,
     MatNativeDateModule,
@@ -101,6 +106,7 @@ import { InfoBarComponent } from './info-bar/info-bar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

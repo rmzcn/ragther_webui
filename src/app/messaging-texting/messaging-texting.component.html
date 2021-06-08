@@ -1,12 +1,12 @@
 <div class="row flex-column fade-in">
-  <div class="chat-head">
-    <a href="" class="text-decoration-none" title="Profile git">
+  <div *ngIf="messageHead | async as head; else loadingHead" class="chat-head">
+    <a routerLink="{{'/user/'+head.userName}}" class="text-decoration-none" title="Profile git">
       <div class="chat-to px-3 py-2">
         <div class="chat-to-img">
-          <img src="../assets/img/profile_img.jpg" alt="">
+          <img src='{{backendUrlBase+"/"+head.userProfileImageURL}}' alt="">
         </div>
         <div class="chat-to-name pt-2 pl-2 text-primary">
-          Ramazan Can GÖLGEN
+          {{head.firstName}} <span style="text-transform: uppercase;"> {{head.lastName}}</span>
         </div>
       </div>
     </a>
@@ -15,34 +15,35 @@
     </div>
   </div>
 
-  <div class="texting mt-3 p-3 overflow-y-scroll">
+  <ng-template #loadingHead>
+    <div class="row justify-content-center">
+      <div class="lds-dual-ring"></div>
+      <p class="lead pt-3">Yükleniyor...</p>
+    </div>
+  </ng-template>
+
+
+  <div #scroll class="texting mt-3 p-3 overflow-y-scroll">
     <!-- messages -->
-    <div class="message message-from-me">
-      <p class="m-0">Benim Gönderdiğim Mesaj </p>
-      <p class="message-date">23:14</p>
+
+    <div *ngFor="let message of messages">
+
+      <div [ngClass]="{'message-from-me': message.authorUserName === sessionOwner, 'message-from-other': message.authorUserName !== sessionOwner}" class="message ">
+        <p class="m-0"> {{message.content}}</p>
+        <!-- <p class="message-date"><i class="far fa-clock"></i></p> -->
+      </div>
+
     </div>
-    <div class="message message-from-other">
-      <p class="m-0">Karşıdakinden gelen mesaj.</p>
-      <p class="message-date">23:14</p>
-    </div>
-    <div class="message message-from-other">
-      <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laudantium optio, alias ad nesciunt quae dolore quisquam nulla. Unde perferendis veniam qui ullam eius ducimus impedit voluptatem non numquam sint!</p>
-      <p class="message-date">23:14</p>
-    </div>
-    <div class="message message-from-me">
-      <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laudantium optio, alias ad nesciunt quae dolore quisquam nulla. Unde perferendis veniam qui ullam eius ducimus impedit voluptatem non numquam sint!</p>
-      <p class="message-date">23:14</p>
-    </div>
-    <div class="message message-from-me">
-      <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laudantium optio, alias ad nesciunt quae dolore quisquam nulla. Unde perferendis veniam qui ullam eius ducimus impedit voluptatem non numquam sint!</p>
-      <p class="message-date">23:14</p>
-    </div>
+
+
+
+
   </div>
   <div class="sending-area">
     <div class="input-group deneme">
-      <input type="text" class="form-control p-3 radius-0 border-dark border-bottom-0 border-left-0 border-top-0" placeholder="Mesaj yaz..." aria-label="message" aria-describedby="basic-addon2">
+      <input #contentInput (keyup.enter)="sendMessage(contentInput)" type="text" class="form-control p-3 radius-0 border-dark border-bottom-0 border-left-0 border-top-0" placeholder="Mesaj yaz..." aria-label="message" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn-outline-info radius-0 border-top-0 border-right-0 border-bottom-0 px-3"><i class="fal fa-paper-plane fa-lg"></i> Gönder</button>
+        <button (submit)="sendMessage(contentInput)" class="btn-info radius-0 border-top-0 border-right-0 border-bottom-0 px-3 bg-light text-info"><i class="fal fa-paper-plane fa-lg"></i> Gönder</button>
       </div>
     </div>
   </div>

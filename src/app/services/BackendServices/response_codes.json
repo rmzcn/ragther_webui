@@ -1,0 +1,272 @@
+{
+  "codes": [
+    {
+      "no": "0000",
+      "name": "UserAdded"
+    },
+    {
+      "no": "0001",
+      "name": "UserAddingFail"
+    },
+    {
+      "no": "0002",
+      "name": "EmailAlreadyTaken"
+    },
+    {
+      "no": "0003",
+      "name": "UserNameAlreadyTaken"
+    },
+    {
+      "no": "0004",
+      "name": "UserNotFound"
+    },
+    {
+      "no": "0005",
+      "name": "UserNameOrPasswordIncorrect"
+    },
+    {
+      "no": "0006",
+      "name": "ProfileDetailNotFound"
+    },
+    {
+      "no": "0007",
+      "name": "TodoAdded"
+    },
+    {
+      "no": "0008",
+      "name": "TodoNotCreated"
+    },
+    {
+      "no": "0009",
+      "name": "TodoUpdated"
+    },
+    {
+      "no": "0010",
+      "name": "TodoDeleted"
+    },
+    {
+      "no": "0011",
+      "name": "TodoNotFound"
+    },
+    {
+      "no": "0012",
+      "name": "TodoCountZero"
+    },
+    {
+      "no": "0013",
+      "name": "UserNotOwnerThisTodo"
+    },
+    {
+      "no": "0014",
+      "name": "UsersAreNotFriends"
+    },
+    {
+      "no": "0015",
+      "name": "UsersAreFriends"
+    },
+    {
+      "no": "0016",
+      "name": "FriendshipSended"
+    },
+    {
+      "no": "0017",
+      "name": "FriendshipAcceppted"
+    },
+    {
+      "no": "0018",
+      "name": "FriendshipRejected"
+    },
+    {
+      "no": "0019",
+      "name": "FriendshipNotFound"
+    },
+    {
+      "no": "0020",
+      "name": "FriendshipRevoked"
+    },
+    {
+      "no": "0021",
+      "name": "FriendshipRequestWaiting"
+    },
+    {
+      "no": "0022",
+      "name": "ProfileIsHidden"
+    },
+    {
+      "no": "0023",
+      "name": "InvalidLocation"
+    },
+    {
+      "no": "0024",
+      "name": "CommentCreated"
+    },
+    {
+      "no": "0025",
+      "name": "CommentNotFound"
+    },
+    {
+      "no": "0026",
+      "name": "CommentDeleted"
+    },
+    {
+      "no": "0027",
+      "name": "CommentIsNotOffer"
+    },
+    {
+      "no": "0028",
+      "name": "Liked"
+    },
+    {
+      "no": "0029",
+      "name": "LikedAlready"
+    },
+    {
+      "no": "0030",
+      "name": "UnLiked"
+    },
+    {
+      "no": "0031",
+      "name": "UnLikedAlready"
+    },
+    {
+      "no": "0032",
+      "name": "Reminded"
+    },
+    {
+      "no": "0033",
+      "name": "RemindedAlready"
+    },
+    {
+      "no": "0034",
+      "name": "DeletedAllNotices"
+    },
+    {
+      "no": "0035",
+      "name": "TagAlreadyExists"
+    },
+    {
+      "no": "0036",
+      "name": "TagAdded"
+    },
+    {
+      "no": "0037",
+      "name": "TagNotFound"
+    },
+    {
+      "no": "0038",
+      "name": "AlreadyFriends"
+    },
+    {
+      "no": "0039",
+      "name": "FriendshipAlreadySended"
+    },
+    {
+      "no": "0040",
+      "name": "WorkersUpdated"
+    },
+    {
+      "no": "0041",
+      "name": "FriendCountUpdated"
+    },
+    {
+      "no": "0042",
+      "name": "HelpCountUpdated"
+    },
+    {
+      "no": "0043",
+      "name": "ProfileScoreUpdated"
+    },
+    {
+      "no": "0044",
+      "name": "FileLengthZero"
+    },
+    {
+      "no": "0045",
+      "name": "FileUploaded"
+    },
+    {
+      "no": "0046",
+      "name": "ProfileVisibilityUpdatedToVisible"
+    },
+    {
+      "no": "0047",
+      "name": "ProfileVisibilityUpdatedToHidden"
+    },
+    {
+      "no": "0048",
+      "name": "HiddenProfileDescriptionUpdated"
+    },
+    {
+      "no": "0049",
+      "name": "ProfileDescriptionUpdated"
+    },
+    {
+      "no": "0050",
+      "name": "PasswordUpdated"
+    },
+    {
+      "no": "0051",
+      "name": "InterestedTagsNotFound"
+    },
+    {
+      "no": "0052",
+      "name": "TagsOfInterestUpdated"
+    },
+    {
+      "no": "0053",
+      "name": "MailUpdateTokenExpired"
+    },
+    {
+      "no": "0054",
+      "name": "MailUpdateTokenAlreadyUsed"
+    },
+    {
+      "no": "0055",
+      "name": "MailUpdateSuccess"
+    },
+    {
+      "no": "0056",
+      "name": "MailUpdateRequestCreated"
+    },
+    {
+      "no": "0057",
+      "name": "MailUpdateTokenNotFound"
+    },
+    {
+      "no": "0058",
+      "name": "MailUpdateRequestAlreadyExist"
+    },
+    {
+      "no": "0059",
+      "name": "EmailSended"
+    },
+    {
+      "no": "0060",
+      "name": "RepassEmailSended"
+    },
+    {
+      "no": "0061",
+      "name": "RepassEmailNotSended"
+    },
+    {
+      "no": "0062",
+      "name": "EmailNotSended"
+    },
+    {
+      "no": "0063",
+      "name": "PasswordsDontMatch"
+    },
+    {
+      "no":"0064",
+      "name": "WorkerAlreadyExistInTodo"
+    },
+    {
+      "no":"0065",
+      "name": "WorkerAddedToTodo"
+    },
+    {
+      "no":"0066",
+      "name": "ReadedAllNotices"
+    }
+  ]
+}

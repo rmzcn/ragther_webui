@@ -1,40 +1,56 @@
 <div class="comment-list">
   <div class="container">
     <!-- comment -->
-    <div class="row">
-      <div class="container">
-        <div class="comments d-flex flex-column">
-          <div class="comment fade-in">
-            <div class="comment-owner">
-              <div class="comment-owner-img">
-                <a href=""><img src="../assets/img/profile_img.jpg" alt=""></a>
-              </div>
-              <div class="comment-info pl-2">
-                <div class="comment-owner-name"><a href="" class="text-decoration-none"><p class="lead m-0">@rmzncn</p></a></div>
-                <div class="comment-date text-muted font-weight-light"><i class="fal fa-clock"></i> 2 saat</div>
-              </div>
-              <div class="offer-sign ml-auto">
-                <!-- eğer anlaşılmısa yeşil olsun renk -->
-                <i class="fas fa-handshake text-orange fa-2x"></i>
-              </div>
-            </div>
+    <div *ngIf="isProgress" class="loader mx-auto"></div>
+    <div *ngIf="isNonComment" class="noContent">
+      <div class="text-center">
+        <p class="lead text-muted">Bu göreve henüz bir yorum yapılmamış</p>
+      </div>
+    </div>
+    <div *ngIf="!isProgress && !isNonComment">
+      <div *ngFor="let comment of todoComments" class="row fade-in">
+        <div class="container">
+          <div class="comments d-flex flex-column">
+            <div class="comment fade-in">
+              <div class="comment-owner">
+                <div class="comment-owner-img">
+                  <a routerLink="{{angularUrlBase+'/user/'+comment.userInfo.userName}}"><img src='{{backendUrlBase+"/"+comment.userInfo.profileImageURL}}' alt=""></a>
+                </div>
+                <div class="comment-info pl-2">
 
-            <div class="comment-text">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quasi cum consequuntur, quisquam ipsam nam dolore necessitatibus assumenda laborum suscipit saepe consequatur facilis at in molestias laudantium expedita. Deserunt, nostrum.</p>
-              <div class="offer-badge">
-                <span>
-                  <div class="offer-act d-inline">
-                    <a href=""><i class="fal fa-check-circle text-success fa-2x"></i></a>
-                    <div class="px-1 d-inline"></div>
-                    <a href=""><i class="fal fa-times-circle text-danger fa-2x"></i></a>
-                  </div>
-                </span>
-                <span><button class="btn btn-outline-danger radius-0 btn-remove-comment float-right">Yorumu sil</button></span>
+                  <div class="comment-owner-name"><a routerLink="{{angularUrlBase+'/user/'+comment.userInfo.userName}}" class="text-decoration-none"><p class="lead m-0">@{{comment.userInfo.userName}}</p></a></div>
+
+                  <div class="comment-date text-muted font-weight-light"><i class="fal fa-clock"></i> {{printRemainingTime(comment.createdAt)}}</div>
+                </div>
+                <div *ngIf="comment.isOffer" class="offer-sign ml-auto">
+                  <!-- eğer anlaşılmısa yeşil olsun renk -->
+                  <i [ngClass]="{'text-success': comment.offerStatus == 3, 'text-danger': comment.offerStatus == 2, 'text-orange': comment.offerStatus == 1}" class="fas fa-handshake text-orange fa-2x"></i>
+                </div>
+              </div>
+
+              <div class="comment-text pt-1">
+                <p>{{comment.content}}</p>
+                <div class="offer-badge">
+                  <span>
+                    <div *ngIf="isTodoOwner && comment.isOffer" class="offer-act d-inline">
+
+                      <button (click)="AcceptOffer(comment.id)" class="btn p-0" *ngIf="comment.offerStatus == 1"><i class="fal fa-check-circle text-success fa-2x"></i></button>
+                      <!-- <div class="px-1 d-inline"></div> -->
+                      <button (click)="RejectOffer(comment.id)" class="btn p-0" *ngIf="comment.offerStatus == 1"><i class="fal fa-times-circle text-danger fa-2x"></i></button>
+
+                      <!-- <ng-template [ngIf]="comment.offerStatus == 3" #offerAccepted><p class="text-success font-weight-light">Teklif Kabul edildi.</p></ng-template>
+                      <ng-template [ngIf]="comment.offerStatus == 2" #offerRejected><p class="text-danger font-weight-light">Teklif Reddedildi.</p></ng-template>     -->
+
+                    </div>
+                  </span>
+                  <span *ngIf="isCommentOwner(comment.userInfo.userName)"><button (click)="deleteComment(comment.id)" class="btn btn-outline-danger radius-0 btn-remove-comment float-right">Yorumu sil</button></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>

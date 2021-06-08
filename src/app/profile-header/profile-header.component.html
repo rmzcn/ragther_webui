@@ -5,14 +5,14 @@
   <div class="row p-3">
     <div class="col-md-3">
       <div class="profile-image">
-        <img src="../assets/img/profile_img.jpg" alt="">
+        <img src='{{backendUrlBase+"/"+userDetail.profileImageURL}}' alt="">
       </div>
     </div>
     <div class="col-md-9">
       <div class="row person-head">
-        <h3 class="display-4 font-person-name">{{personName}} {{personSurname}}</h3>
+        <h3 class="display-4 font-person-name">{{userDetail.firstName}} {{userDetail.lastName}}</h3>
         <div class="d-flex">
-          <p class="font-user-name">@{{userName}}</p>
+          <p class="font-user-name">@{{userDetail.userName}}</p>
         </div>
 
       </div>
@@ -22,7 +22,7 @@
             - Açıklama -
           </div>
           <div class="profile-desc-body lead">
-            {{profileDescription}}
+            {{userDetail.profileDetail.profileDescription}}
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
             <div class="col-4">
               <div class="info-element">
                 <div class="info-element-value text-center">
-                  {{profileScore}}
+                  {{userDetail.profileDetail.profileScore}}
                 </div>
                 <div class="info-element-text text-center text-muted">
                   Puan
@@ -42,7 +42,7 @@
             <div class="col-4">
               <div class="info-element">
                 <div class="info-element-value text-center">
-                  {{helpNumber}}
+                  {{userDetail.profileDetail.helpCount}}
                 </div>
                 <div class="info-element-text text-center text-muted">
                   Yardım
@@ -52,7 +52,7 @@
             <div class="col-4">
               <div class="info-element">
                 <div class="info-element-value text-center">
-                  {{friendsNumber}}
+                  {{userDetail.profileDetail.friendCount}}
                 </div>
                 <div class="info-element-text text-center text-muted">
                   Arkadaş
@@ -63,7 +63,7 @@
         </div>
         <div class="col-md-6">
           <div class="row pt-3 user-actions">
-            <div *ngIf="isSelf; then thenBlock else elseBlock"></div>
+            <div *ngIf="sessionOwner === userDetail.userName; then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>
               <div class="action-element mx-3">
                 <a routerLink='/settings' class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-dark">
@@ -77,10 +77,10 @@
 
               <ng-template #isFriendBlock>
                 <div class="action-element mx-3">
-                  <a href="" class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-danger">
+                  <button (click)="revokeFriend()" class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-danger">
                     <i class="fal fa-user-slash fa-lg d-flex justify-content-center text-center"></i>
                     <p class="text-center m-0">Kişiyi Çıkart</p>
-                  </a>
+                  </button>
                 </div>
               </ng-template>
 
@@ -88,22 +88,47 @@
                 <div *ngIf="isSendFriendship; then friendshipSended else friendshipNotSended"></div>
 
                 <ng-template #friendshipNotSended>
-                  <div class="action-element mx-3">
-                    <a href="" class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-info">
-                      <i class="fal fa-user-plus fa-lg d-flex justify-content-center text-center"></i>
-                      <p class="text-center m-0">Arkadaş Ekle</p>
-                    </a>
-                  </div>
+                  <div *ngIf="isExistWaitingFriendshipRequest; then existWaitingFriendshipRequest else addFriendBlock"></div>
+
+                  <ng-template #addFriendBlock>
+                    <div class="action-element mx-3">
+                      <button (click)="sendFriendshipRequest()" class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-info">
+                        <i class="fal fa-user-plus fa-lg d-flex justify-content-center text-center"></i>
+                        <p class="text-center m-0">Arkadaş Ekle</p>
+                      </button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template #existWaitingFriendshipRequest>
+                    <div class="action-element">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button (click)="acceptRequest()" class="d-inline text-decoration-none radius-0 pb-0 btn btn-outline-success">
+                          <i class="far fa-check fa-lg d-flex justify-content-center text-center"></i>
+                          <p class="text-center m-0">Kabul et</p>
+                        </button>
+
+                        <button (click)="rejectRequest()" class="d-inline text-decoration-none radius-0 pb-0 btn btn-outline-danger">
+                          <i class="far fa-times fa-lg d-flex justify-content-center text-center"></i>
+                          <p class="text-center m-0">Reddet</p>
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+
                 </ng-template>
 
                 <ng-template #friendshipSended>
                   <div class="action-element mx-3">
-                    <a href="" class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-info">
+                    <a class="d-block text-decoration-none radius-0 pb-0 btn btn-outline-info">
                       <i class="fal fa-user-clock fa-lg d-flex justify-content-center text-center"></i>
                       <p class="text-center m-0">Bekleniyor</p>
                     </a>
                   </div>
                 </ng-template>
+
+
+
+
               </ng-template>
 
               <div class="action-element mx-3">
@@ -119,3 +144,4 @@
     </div>
   </div>
 </div>
+

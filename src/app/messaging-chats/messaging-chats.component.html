@@ -3,36 +3,53 @@
   <div class="message-actions-area chat-top">
     <div class="message-actions pt-1">
       <div class="new-message">
-        <button class="btn" title="Yeni Mesaj" data-toggle="modal" data-target="#modalNewMessage"><i class="fal fa-feather-alt fa-2x"></i></button>
+        <button (click)="getFriends()" class="btn" title="Yeni Mesaj" data-toggle="modal" data-target="#modalNewMessage"><i class="fal fa-feather-alt fa-2x"></i></button>
       </div>
       <div class="area-title pt-2 lead">
         Mesajlaşma
       </div>
       <div class="log-out pr-4">
-        <button class="btn" title="Çıkış"><i class="fal fa-sign-out-alt fa-2x"></i></button>
+        <button (click)="logOut()" class="btn" title="Çıkış"><i class="fal fa-sign-out-alt fa-2x"></i></button>
       </div>
     </div>
   </div>
 
   <div class="overflow-y-scroll full-width pt-3">
     <!-- users -->
-    <a [routerLink]="['/chat/23424']" class="chat-link">
-      <div class="chat py-1 px-2">
-        <div class="chat-user">
-          <div class="chat-user-img">
-            <img src="../assets/img/profile_img.jpg" alt="">
-          </div>
-          <div class="chat-info pl-2 pt-1">
-            <div class="chat-info-user">
-              <span class="chat-info-username text-info">@rmzncn</span>
+    <div *ngIf="chats | async as users; else loading">
+      <a *ngFor="let user of users" routerLink='/chat/{{user.chatId}}' class="chat-link">
+        <div class="chat py-1 px-2">
+          <div class="chat-user">
+            <div class="chat-user-img">
+              <img src='{{backendUrlBase+"/"+user.secondUserProfileImageURL}}' alt="">
             </div>
-            <div class="chat-info-message text-muted text-info">
-              Lorem ipsum dolor sit amet consect...
+            <div class="chat-info pl-2 pt-1">
+              <div class="chat-info-user">
+                <span class="chat-info-username text-info">@{{user.secondUserName}}</span>
+              </div>
+              <div class="chat-info-message text-muted text-info">
+                {{user.secondUserName}} ile sohbet için tıklayın...
+              </div>
             </div>
           </div>
         </div>
+      </a>
+      <div *ngIf="users.length === 0" class="text-center pt-4">
+
+        <i class="text-center fas fa-crow fa-2x"></i>
+        <p class="lead text-center">Henüz bir başlatılmış sohbet yok.</p>
+
       </div>
-    </a>
+    </div>
+
+    <ng-template #loading>
+      <div class="row justify-content-center">
+        <div class="lds-dual-ring"></div>
+        <p class="lead pt-3">Yükleniyor...</p>
+      </div>
+    </ng-template>
+
+
   </div>
 </div>
 
@@ -47,26 +64,37 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body overflow-y-scroll" style="max-height: 300px;">
         <h5 class="lead">Arkadaşların</h5>
-        <div class="new-chat-users">
-          <div class="friend-for-chat p-2">
-            <a href="" class="new-chat-link">
+        <div *ngIf="friends | async as friendsList; else friendsLoading" class="new-chat-users">
+
+          <div *ngFor="let friend of friendsList" class="friend-for-chat p-2">
+
+            <a (click)="createChat(friend.userName)" data-dismiss="modal" href="javascript:void(0)" class="new-chat-link">
               <div class="chat-user">
                 <div class="chat-user-img">
-                  <img src="../assets/img/profile_img.jpg" alt="">
+                  <img src='{{backendUrlBase+"/"+friend.profileImageURL}}' alt="">
                 </div>
                 <div class="chat-info pl-2 pt-2">
                   <div class="chat-info-user">
-                    <span class="new-chat-username text-info">@rmzncn</span>
+                    <span class="new-chat-username text-info">@{{friend.userName}}</span>
                   </div>
                 </div>
               </div>
             </a>
+
           </div>
 
         </div>
+        <ng-template #friendsLoading>
+          <div class="row justify-content-center">
+            <div class="lds-dual-ring"></div>
+            <p class="lead pt-3">Yükleniyor...</p>
+          </div>
+        </ng-template>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary radius-0" data-dismiss="modal">İptal</button>
       </div>

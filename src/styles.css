@@ -139,6 +139,16 @@
   animation: spin 1s linear infinite;
 }
 
+.button-loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #ff5b03;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -184,4 +194,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 .notification-message{
   background-color: rgb(12, 12, 12);
   color: tomato
+}
+
+.emoji{
+  background-color: rgb(125, 21, 252);
+  color: rgb(255, 225, 0)
+}
+
+
+
+
+
+/* PROGRESS SPINNERS */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(0, 202, 247);
+  border-color: rgb(0, 207, 239) transparent rgb(109, 0, 242) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

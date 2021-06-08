@@ -10,6 +10,7 @@ export class MessagingComponent implements OnInit {
 
   public isMobile: boolean;
   public isMenuMain: boolean;
+  public anyChatSelected : boolean = true;
 
   constructor(private route: ActivatedRoute) {
     if (window.innerWidth < 768) {
@@ -28,7 +29,9 @@ export class MessagingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // console.log(this.getChatID());
+    if (this.getChatID() === null) {
+      this.anyChatSelected = false;
+    }
   }
 
   public getChatID() : string {

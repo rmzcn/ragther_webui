@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { InfoBarComponent } from './info-bar/info-bar.component';
 
-export declare type ToastType = 'danger' | 'warning' | 'info' | 'success' | 'notification' | 'mode_change';
+export declare type ToastType = 'danger' | 'warning' | 'info' | 'success' | 'notification' | 'mode_change' | 'emoji';
 export declare type NotificationType = 'friendship' | 'message' | 'friendship_reject' | 'comment' | 'like' | 'remind' | 'order_reject' | 'order_accept';
 
 @Injectable({
@@ -45,6 +45,9 @@ export class ToastService {
         break;
       case 'notification':
         messagePanelClass="notification-message";
+        break;
+      case 'emoji':
+        messagePanelClass="emoji";
         break;
       default:
         messagePanelClass="info-default";

@@ -1,5 +1,7 @@
 <div class="container mt-6 fade-in">
-  <div class="row justify-content-center flex-column full-width">
+
+  <!-- full-width class deleted -->
+  <div class="row justify-content-center flex-column">
     <div class="col-md-6 mx-auto height-auto">
       <div class="login-area">
         <div class="login-area-head border">
@@ -11,26 +13,86 @@
         <div class="login-area-body mt-3 border">
           <div class="inputs pt-3">
             <h6 class="display-4 m-0 text-center">Kayıt Ol</h6>
+
             <div class="login-form px-4 pt-3">
               <form id="signupForm">
                 <div class="form-group">
                   <label for="usernameInputSignup">Kullanıcı Adı</label>
-                  <input type="text" class="form-control" id="usernameInputSignup" placeholder="Kullanıcı adınızı giriniz">
+                  <input [(ngModel)]="userName" name="userNameInput" type="text" class="form-control" id="usernameInputSignup" placeholder="Kullanıcı adınızı giriniz">
+
+                  <ng-template [ngIf]="userNameEmpty" #ifUserNameEmpty>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Kullanıcı Adı alanı boş olamaz!</div>
+                  </ng-template>
+
+                  <ng-template [ngIf]="userNameAlreadyTaken" #ifUserNameAlreadyTaken>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-square"></i>   <span class="font-weight-bold">  {{userName}}</span> kullanıcı adı daha önceden alınmış!</div>
+                  </ng-template>
+
+                  <ng-template [ngIf]="userNameShort" #ifUserNameShort>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Kullanıcı Adı en az 4 karakterden oluşmalıdır!</div>
+                  </ng-template>
+
+                </div>
+                <div class="form-group">
+                  <label for="usernameInputSignup">Adınız</label>
+                  <input [(ngModel)]="firstName" name="firstNameInput"  type="text" class="form-control" id="firstnameInputSignup" placeholder="Adınızı giriniz">
+
+                  <ng-template [ngIf]="firstNameEmpty" #firstNameBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Ad alanı boş olamaz!</div>
+                  </ng-template>
+
+                </div>
+                <div class="form-group">
+                  <label for="usernameInputSignup">Soyadınız</label>
+                  <input [(ngModel)]="lastName" name="lastNameInput" type="text" class="form-control" id="lastnameInputSignup" placeholder="Soyadınızı giriniz">
+
+                  <ng-template [ngIf]="lastNameEmpty" #lastNameBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Soyad alanı boş olamaz!</div>
+                  </ng-template>
+
+
                 </div>
                 <div class="form-group">
                   <label for="mailInputSignup">Email Adresi</label>
-                  <input type="email" class="form-control" id="mailInputSignup" placeholder="Email adresinizi giriniz">
+                  <input [(ngModel)]="email" name="emailInput" type="email" class="form-control" id="mailInputSignup" placeholder="Email adresinizi giriniz">
+
+                  <ng-template [ngIf]="emailEmpty" #emailEmptyBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Email alanı boş olamaz!</div>
+                  </ng-template>
+
+                  <ng-template [ngIf]="emailAlreadyTaken"  #emailAlreadyTakenBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-square"></i> Bu Email adres daha önceden alınmış!</div>
+                  </ng-template>
+
                 </div>
                 <div class="form-group">
                   <label for="passInputSignup">Şifre</label>
-                  <input type="password" class="form-control" id="passInputSignup" placeholder="Şifrenizi giriniz">
+                  <input [(ngModel)]="password" name="passwordInput" type="password" class="form-control" id="passInputSignup" placeholder="Şifrenizi giriniz">
+
+
+                  <ng-template [ngIf]="passwordEmpty" #passEmptyBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-triangle"></i> Şifre alanı boş olamaz!</div>
+                  </ng-template>
+
+                  <ng-template [ngIf]="passwordShort"  #passShortBlock>
+                    <div class="ml-1 small text-danger"><i class="fal fa-exclamation-square"></i> Şifre en az 6 haneli olmalıdır!</div>
+                  </ng-template>
+
                 </div>
               </form>
             </div>
           </div>
           <div class="login-area-footer px-4 pb-3">
             <div class="login-enter">
-              <button form="signupForm" class="btn btn-outline-dark radius-0 btn-block"> <i class="fas fa-sign-in-alt fa-lg"></i> Kayıt Ol</button>
+              <ng-template [ngIf]="isProgress" #progressButtonBlock>
+                <button disabled form="signupForm" class="btn btn-dark radius-0 btn-block d-flex pb-1 justify-content-center">  Kayıt Ol <i class="fas fa-sign-in-alt fa-lg pt-1 ml-2"></i> <div class="ml-2" [ngClass]="{'button-loader': isProgress}"></div></button>
+              </ng-template>
+
+              <ng-template [ngIf]="!isProgress" #normalButtonBlock>
+                <button (click)="Register()" form="signupForm" class="btn btn-outline-dark radius-0 btn-block d-flex pb-1 justify-content-center">  Kayıt Ol <i class="fas fa-sign-in-alt fa-lg pt-1 ml-2"></i> <div class="ml-2" [ngClass]="{'button-loader': isProgress}"></div></button>
+              </ng-template>
+
+
             </div>
             <div class="other-actions row pt-2">
               <div class="col-md-6">

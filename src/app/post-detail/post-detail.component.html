@@ -1,18 +1,9 @@
 <div class="container mt-6 fade-in">
-  <div class="row">
-    <h3 class="font-weight-light"><a href="" class="text-decoration-none">@rmzncn</a> Tarafından paylaşılan görev</h3>
+  <div class="row flex-column">
+    <h3 class="font-weight-light">Görev detayları</h3>
     <!-- buraya gelen parametreye göre gelecek burası -->
-    <!--
-      ÇOK ÖNEMLİ
-      **********
-      Detaylar sayfasında yorumlar da yer alacak
-    -->
-    <home-todos></home-todos>
 
-    <!-- Yorumlar burada olacak
+    <home-todos [todoIdForSinglePage]="todoID"></home-todos>
 
-      <yroumlar><yorumlar>
-
-    -->
   </div>
 </div>

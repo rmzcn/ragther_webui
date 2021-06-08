@@ -16,8 +16,19 @@
 
 
         <ng-template #chat>
-          <div class="col-md-8 texting-area full-height fade-in">
+          <div *ngIf="anyChatSelected" class="col-md-8 texting-area full-height fade-in">
             <messaging-texting></messaging-texting>
+          </div>
+
+          <div *ngIf="!anyChatSelected" class="col-md-8 texting-area full-height fade-in">
+            <div class="container mt-4 pt-4">
+              <div class="text-center">
+                <i class="fal fa-comment-alt-smile fa-6x text-orange"></i>
+                <br>
+                <h3 class="display-4">Arkadaşlarınızla sohbet edin.</h3>
+                <h6><i class="fal fa-info-circle fa-lg text-info pt-4"></i> Sohbet etmek için sol tarafta bulunan menüyü kullanabilirsiniz.</h6>
+              </div>
+            </div>
           </div>
         </ng-template>
 
@@ -28,9 +39,22 @@
         <div class="col-md-4 chat-area">
           <messaging-chats></messaging-chats>
         </div>
-        <div class="col-md-8 texting-area fade-in">
+        <div *ngIf="anyChatSelected" class="col-md-8 texting-area fade-in">
           <messaging-texting></messaging-texting>
         </div>
+
+        <div *ngIf="!anyChatSelected" class="col-md-8 texting-area full-height fade-in">
+          <div class="container mt-4 pt-4">
+            <div class="text-center">
+              <i class="fal fa-comment-alt-smile fa-6x text-orange"></i>
+              <br>
+              <h3 class="display-4">Arkadaşlarınızla sohbet edin.</h3>
+              <h6><i class="fal fa-info-circle fa-lg text-info pt-4"></i> Sohbet etmek için sol tarafta bulunan menüyü kullanabilirsiniz.</h6>
+            </div>
+          </div>
+        </div>
+
+
       </ng-template>
 
 

@@ -4,28 +4,37 @@
       <h5 class="display-4">İçerik Ekle</h5>
       <hr>
       <div class="add-area p-2">
-        <!--
-          konum,
-          içerik,
-          fotoğraf,
-          etiketler,
-          gerçekleştirme zamanı
-         -->
         <div class="row">
           <div class="col-md-6">
             <label class="lead"><i class="fal fa-map-marked-alt fa-lg text-danger"></i> Adres</label>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Adresinizi girin yada konum alın.">
+            <div class="input-group mb-1">
+              <input type="text" value="{{address}}" disabled class="form-control small bg-white" placeholder="Adresiniz...">
+
               <div class="input-group-append">
-                <button class="btn btn-danger radius-0"><i class="fal fa-map-marker-alt fa-lg"></i></button>
+                <ng-template [ngIf]="isProgress" #spinnerGeocodeProgress>
+                  <button disabled class="btn btn-danger radius-0"><div class="button-loader"></div></button>
+                </ng-template>
+
+                <ng-template [ngIf]="!isProgress" #spinnerGeocodeNotProgress>
+                  <button (click)="getLocation()" class="btn btn-danger radius-0"><i class="fal fa-map-marker-alt fa-lg"></i></button>
+                </ng-template>
               </div>
+
             </div>
+            <ng-template [ngIf]="locationError" #locaitonError>
+              <small class="form-text small text-danger"> <i class="fal fa-exclamation-triangle"></i> Konumunuz alınamadı. Lütfen konum izinlerini açmayı unutmayın.</small>
+            </ng-template>
+
+            <ng-template [ngIf]="isDeletable" #deleteAddress>
+              <button class="btn btn-outline-danger btn-sm btn-block" (click)="removeAddress()">Konumu sil.</button>
+            </ng-template>
+
           </div>
           <div class="col-md-6">
             <div class="form-group row">
               <label for="contentDateInput" class="lead ml-3 mt-2"> <i class="fal fa-clock fa-lg text-danger"> </i> Görev Tarihi ve Saati</label>
               <div class="col-12">
-                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="contentDateInput">
+                <input class="form-control" type="datetime-local" [(ngModel)]="untilWhen" id="contentDateInput">
                 <small class="form-text text-muted">Varsayılan olarak 4 saat sonrası işaretlenmiştir. Kontrol ediniz</small>
               </div>
             </div>
@@ -33,27 +42,25 @@
         </div>
         <div class="form-group">
           <label for="contentTitle" class="lead mt-1"><i class="fal fa-quote-right fa-lg text-danger"></i> Görev açıklaması</label>
-          <textarea class="form-control" placeholder="Paylaşım yapıldığında gözükecek içeriği yazın" id="contentTitle" required rows="3"></textarea>
+          <textarea [(ngModel)]="description" class="form-control" placeholder="Paylaşım yapıldığında gözükecek içeriği yazın" id="contentTitle" required rows="3"></textarea>
+
         </div>
 
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label for="imageInput" class="lead  mt-2"><i class="fal fa-image fa-lg text-danger"> </i> Fotoğraf</label>
-              <input type="file" class="form-control-file  border py-1 px-2" id="imageInput">
+              <input type="file" (change)="onFileChanged($event)" class="form-control-file  border py-1 px-2" id="imageInput">
             </div>
           </div>
           <div class="col-md-6">
             <div class="tag-list">
               <div class="form-group">
                 <label for="existingTags" class="lead d-block mt-2"><i class="fal fa-hashtag fa-lg text-danger"></i> Etiket Ekle</label>
-                <input list="brow" class="form-control" placeholder="Etiket girin" style="width: 100%; font-size: large; height: 40px;" type="text">
+                <input list="brow" #tagSearchFilter (change)="this.getTags(tagSearchFilter); addTag(tagSearchFilter)" class="form-control" placeholder="Etiket girin" style="width: 100%; font-size: large; height: 40px;" type="text">
                 <datalist id="brow" >
-                  <option value="Internet Explorer" style="width: 100%; font-size: large;">
-                  <!-- <option value="Firefox">
-                  <option value="Chrome">
-                  <option value="Opera">
-                  <option value="Safari"> -->
+                  <option *ngFor="let tag of searchedTags" value="{{tag.name}}" aria-placeholder=" - by @{{tag.creatorUserName}}" style="width: 100%; font-size: large;">
+
                 </datalist>
               </div>
             </div>
@@ -62,58 +69,28 @@
         <div class="tags-area">
           <p class="lead mt-2">Etiketler</p>
           <div class="tags border p-2">
-            <div class="tag">
-              <div class="tag-name">Ödev</div>
-              <button type="button" class="close ml-1" aria-label="Close">
+            <div *ngFor="let addedTag of addedTags" class="tag">
+              <div class="tag-name">{{addedTag.name}} by @{{addedTag.creatorUserName}}</div>
+              <button (click)="deleteTag(addedTag.name)" type="button" class="close ml-1" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="tag">
-              <div class="tag-name">Ödev</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
+
+            <div *ngIf="addedTags.length === 0">
+              <p class="lead text-center mb-0">Henüz bir etiket eklenmedi.</p>
             </div>
-            <div class="tag">
-              <div class="tag-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="tag">
-              <div class="tag-name">Ödev</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="tag">
-              <div class="tag-name">Ödev</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="tag">
-              <div class="tag-name">Lorem ipsum dolor sit amet</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="tag">
-              <div class="tag-name">Lorem ipsum dolor sit amet</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="tag">
-              <div class="tag-name">Ödev</div>
-              <button type="button" class="close ml-1" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            </div>
+
           </div>
         </div>
         <p class="mt-3 lead">Eğer mevcut etiketler arasında istediğiniz yok ise siz etiket ekleyebilirsiniz</p>
         <div class="input-group mb-3">
-          <input type="text" id="addTag" class="form-control" placeholder="Etiket adı girin" aria-label="Etiket adı" aria-describedby="addTag">
+          <input type="text" id="addTag" #tagAddInput class="form-control" placeholder="Etiket adı girin" aria-label="Etiket adı" aria-describedby="addTag">
           <div class="input-group-append">
-            <button class="btn btn-outline-success radius-0" data-toggle="modal" data-target="#addNewTagModal">Ekle</button>
+            <button (click)="crateConfirmationForTag(confirmModal, tagAddInput)" class="btn btn-outline-success radius-0" data-toggle="modal" data-target="#addNewTagModal">Ekle</button>
           </div>
         </div>
         <!-- <p class="lead text-danger text-center font-weight-bold"><i class="fas fa-exclamation-triangle fa-lg"></i> Yeni etiket oluşturma hakkınız kalmadı.</p> -->
         <div class="row justify-content-center pb-3">
-          <button class="btn btn-outline-info btn-lg radius-0 w-50"><i class="fal fa-share fa-lg"></i> Oluştur</button>
+          <button (click)="addContent(); startPorgressWithModal(progressModal)" class="btn btn-outline-info btn-lg radius-0 w-50"><i class="fal fa-share fa-lg"></i> Oluştur</button>
         </div>
       </div>
     </div>
@@ -123,7 +100,7 @@
 
 
 
-<div class="modal fade-in" id="addNewTagModal" tabindex="-1" role="dialog" aria-labelledby="addNewTagModalTitle" aria-hidden="true">
+<!-- <div class="modal fade-in" id="addNewTagModal" tabindex="-1" role="dialog" aria-labelledby="addNewTagModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content radius-0 bg-modal">
       <div class="modal-header">
@@ -139,7 +116,7 @@
         <div class="add-tag-title text-center mt-2">
           <span class="text-danger font-weight-bold">#okul</span> Etiketi sistem üzerinde <span class="font-weight-bold">kayıtlı değil.</span> Sizin oluşturduğunuz bilgisini içeren bir etiket oluşturacaksınız. Bu etiketi oluşturmayı onaylıyor musunuz ?
           <div class="mt-2"></div>
-          <span class="text-small"><i class="fas fa-info-circle fa-lg text-info"></i> Unutmayın günde sadece 3 adet etiket oluşturabilirsiniz.</span>
+          <span class="text-small"><i class="fas fa-info-circle fa-lg text-info"></i> Unutmayın etiketi sizin adınıza oluşturulacaktır. </span>
         </div>
       </div>
       <div class="modal-footer">
@@ -148,4 +125,57 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+<ng-template #confirmModal let-modal>
+  <div class="modal-header border-bottom-0">
+    <h4 class="modal-title w-100 text-danger text-center font-weight-light" id="modal-basic-title"><i class="fal fa-trash-alt fa-lg"></i> Etiket oluşturuluyor</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body pb-3 pt-1">
+    <div class="mail-info-icon text-center">
+      <i class="fas fa-hashtag fa-6x"></i>
+    </div>
+    <div class="add-tag-title text-center mt-2">
+       Sizin oluşturduğunuz bilgisini içeren bir etiket oluşturacaksınız. Bu etiketi oluşturmayı onaylıyor musunuz ?
+      <div class="mt-2"></div>
+      <span class="text-small"><i class="fas fa-info-circle fa-lg text-info"></i> Unutmayın etiket sizin adınıza oluşturulacaktır. Dikkatli olunuz.</span>
+    </div>
+  </div>
+  <div class="modal-footer border-top-0 flex-row p-1" style="flex-wrap: nowrap;">
+      <div class="col-6 ">
+        <button type="button" class="btn btn-block btn-outline-danger radius-0" (click)="modal.close('yes')">Onayla</button>
+      </div>
+      <div class="col-6 mr-0 pr-1">
+        <button type="button" class="btn btn-block btn-outline-info radius-0 " (click)="modal.close('no')">İptal</button>
+      </div>
+  </div>
+</ng-template>
+
+
+<ng-template #progressModal let-modal>
+  <div class="modal-header border-bottom-0">
+    <h4 class="modal-title w-100 text-danger text-center font-weight-light" id="modal-basic-title"><i class="fal fa-trash-alt fa-lg"></i> Görev Paylaşılıyor...</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body pb-3 pt-1">
+    <div class="mail-info-icon text-center">
+      <div class="lds-dual-ring"></div>
+    </div>
+    <div>
+      <p class="lead"> Yükleniyor... {{fileUploadProgress}}</p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{fileUploadProgress}}" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+
+  </div>
+
+</ng-template>
+
